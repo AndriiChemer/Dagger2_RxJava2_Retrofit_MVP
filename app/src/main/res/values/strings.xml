@@ -3,6 +3,7 @@
 
     <!--Errors-->
     <string name="no_implemented">This feature not implemented yet.</string>
+    <string name="default_error">Ops, something went wrong.</string>
 
 
 </resources>

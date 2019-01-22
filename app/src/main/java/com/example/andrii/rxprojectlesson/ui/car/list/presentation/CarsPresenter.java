@@ -37,7 +37,7 @@ public class CarsPresenter
 
             @Override
             public void onError(Throwable e) {
-                //TODO write to log and show error message
+                doOnView(CarsContract.View::showDefaultErrorMessage);
             }
         });
     }

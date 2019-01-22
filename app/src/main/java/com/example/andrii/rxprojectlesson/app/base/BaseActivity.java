@@ -51,7 +51,11 @@ public abstract class BaseActivity<V extends BaseContract.View, P extends BaseCo
 
     protected void prepareView() {}
 
-    protected void showNoImplementedFeatureMessage() {
+    public void showNoImplementedFeatureMessage() {
         Toast.makeText(this, getString(R.string.no_implemented), Toast.LENGTH_SHORT).show();
+    }
+
+    public void showDefaultErrorMessage() {
+        Toast.makeText(this, getString(R.string.default_error), Toast.LENGTH_SHORT).show();
     }
 }

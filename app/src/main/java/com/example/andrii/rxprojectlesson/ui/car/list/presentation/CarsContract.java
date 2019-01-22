@@ -12,6 +12,8 @@ public interface CarsContract {
         void showCars(List<CarViewModel> listCars);
 
         void openCarDetailScreen(int id);
+
+        void showDefaultErrorMessage();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
