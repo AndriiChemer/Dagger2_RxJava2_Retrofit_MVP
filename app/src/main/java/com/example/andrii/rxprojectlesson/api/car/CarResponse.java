@@ -12,7 +12,7 @@ public class CarResponse {
     private String category;
     private String description;
     @SerializedName("category_id")
-    private String categoryId;
+    private int categoryId;
     @SerializedName("fuel_id")
     private int fuelId;
     @SerializedName("cm_3")

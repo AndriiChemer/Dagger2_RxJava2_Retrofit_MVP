@@ -22,10 +22,12 @@ import butterknife.BindView;
 
 public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsAdapter.CarItemCallback> {
 
+    private final Context context;
     private final GlideUrlImageLoader imageLoader;
 
     @Inject
-    public CarsAdapter(GlideUrlImageLoader imageLoader) {
+    public CarsAdapter(Context context, GlideUrlImageLoader imageLoader) {
+        this.context = context;
         this.imageLoader = imageLoader;
     }
 
@@ -42,7 +44,6 @@ public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarVi
     public class CarViewHolder extends ViewHolder<CarViewModel> {
 
         public static final int VIEW_TYPE = 0;
-
 
         @BindView(R.id.card_item_container)
         CardView container;
@@ -68,9 +69,11 @@ public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarVi
         public void bind(CarViewModel car) {
             if (car.getPhoto() != null) {
                 imageLoader.loadInto(car.getPhoto(), carImage);
+            } else {
+                carImage.setBackground(context.getResources().getDrawable(R.drawable.no_image));
             }
 
-            price.setText(car.getPrice() + " " + "PLN");
+            price.setText(String.valueOf(car.getPrice()) + " " + "PLN");
             brandModelName.setText(car.getBrand() + " " + car.getModel());
             fuelType.setText(car.getFuel());
             localization.setText(car.getLocalization());

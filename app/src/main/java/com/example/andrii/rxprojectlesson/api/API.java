@@ -10,7 +10,7 @@ import retrofit2.http.GET;
 
 public interface API {
 
-    @GET("/cars")
+    @GET("/cars.json")
     Single<List<CarResponse>> getCars();
 
     @GET("/category")

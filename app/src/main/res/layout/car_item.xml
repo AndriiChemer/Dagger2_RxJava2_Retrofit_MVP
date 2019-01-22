@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:toos="http://schemas.android.com/tools"
+    xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/card_item_container"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    android:layout_marginBottom="2dp"
     android:background="@color/colorPrimary">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/no_image">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tool:background="@drawable/no_image"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,8 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/brand_model_name"
                 android:textColor="@color/textColorWhite"
-                android:textSize="20dp"
-                toos:text="27000 PLN"/>
+                android:textSize="17dp"
+                tool:text="27000 PLN"/>
 
             <TextView
                 android:id="@+id/brand_model_name"
@@ -37,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/fuel_image"
                 android:textColor="@color/textColorWhite"
-                android:textSize="20dp"
-                toos:text="Mercedes-Benz CLA"/>
+                android:textSize="17dp"
+                tool:text="Mercedes-Benz CLA"/>
 
             <ImageView
                 android:id="@+id/fuel_image"
@@ -55,8 +56,8 @@
                 android:layout_toEndOf="@+id/fuel_image"
                 android:textColor="@color/textColorWhite"
                 android:layout_marginBottom="2dp"
-                android:textSize="15dp"
-                toos:text="Benzyna"/>
+                android:textSize="13dp"
+                tool:text="Benzyna"/>
 
             <ImageView
                 android:id="@+id/localization_marker"
@@ -75,8 +76,8 @@
                 android:layout_toEndOf="@+id/localization_marker"
                 android:textColor="@color/textColorWhite"
                 android:layout_marginBottom="2dp"
-                android:textSize="15dp"
-                toos:text="Lublin"/>
+                android:textSize="13dp"
+                tool:text="Lublin"/>
         </RelativeLayout>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -10,7 +10,7 @@ public abstract class ViewHolder<T> extends RecyclerView.ViewHolder {
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
-        ButterKnife.bind(itemView);
+        ButterKnife.bind(this, itemView);
     }
 
     public abstract void bind(T object);

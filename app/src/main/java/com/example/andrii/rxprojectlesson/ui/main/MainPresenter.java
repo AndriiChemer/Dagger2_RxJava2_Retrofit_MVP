@@ -16,4 +16,9 @@ public class MainPresenter extends BasePresenter<MainContract.View>
     public void onRegistrationRxValidationButtonClick() {
         doOnView(MainContract.View::openRegistrationScreen);
     }
+
+    @Override
+    public void onCarListButtonClick() {
+        doOnView(MainContract.View::openCarListScreen);
+    }
 }

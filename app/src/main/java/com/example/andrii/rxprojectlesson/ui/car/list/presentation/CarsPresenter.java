@@ -32,7 +32,10 @@ public class CarsPresenter
         getCarsUseCase.execute(new SimpleSingleObserver<List<CarResponse>>(this) {
             @Override
             public void onSuccess(List<CarResponse> carResponses) {
-                doOnView(view -> view.showCars(carConverter.convert(carResponses)));
+                doOnView(view -> {
+                    view.showCars(carConverter.convert(carResponses));
+                    view.hideSkeleton();
+                });
             }
 
             @Override

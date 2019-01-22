@@ -29,6 +29,7 @@ public class NetworkModule {
     @Provides
     Gson provideGson() {
         return new GsonBuilder()
+                .setLenient()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .registerTypeAdapter(Date.class, new JsonDeserealizer())
                 .create();

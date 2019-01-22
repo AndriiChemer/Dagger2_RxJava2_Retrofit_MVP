@@ -14,6 +14,8 @@ public interface CarsContract {
         void openCarDetailScreen(int id);
 
         void showDefaultErrorMessage();
+
+        void hideSkeleton();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {

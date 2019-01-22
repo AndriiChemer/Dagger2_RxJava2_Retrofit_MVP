@@ -7,10 +7,14 @@ public interface MainContract {
     interface View extends BaseContract.View {
 
         void openRegistrationScreen();
+
+        void openCarListScreen();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
 
         void onRegistrationRxValidationButtonClick();
+
+        void onCarListButtonClick();
     }
 }
