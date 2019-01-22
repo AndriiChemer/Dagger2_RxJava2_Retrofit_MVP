@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toos="http://schemas.android.com/tools"
+    android:id="@+id/card_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/no_image">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="7dp"
+            android:paddingEnd="5dp">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/brand_model_name"
+                android:textColor="@color/textColorWhite"
+                android:textSize="20dp"
+                toos:text="27000 PLN"/>
+
+            <TextView
+                android:id="@+id/brand_model_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/fuel_image"
+                android:textColor="@color/textColorWhite"
+                android:textSize="20dp"
+                toos:text="Mercedes-Benz CLA"/>
+
+            <ImageView
+                android:id="@+id/fuel_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/ic_fuel_station"/>
+
+            <TextView
+                android:id="@+id/fuel_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/fuel_image"
+                android:textColor="@color/textColorWhite"
+                android:layout_marginBottom="2dp"
+                android:textSize="15dp"
+                toos:text="Benzyna"/>
+
+            <ImageView
+                android:id="@+id/localization_marker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/fuel_type"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_location_on_black_24dp"/>
+
+            <TextView
+                android:id="@+id/localization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/localization_marker"
+                android:textColor="@color/textColorWhite"
+                android:layout_marginBottom="2dp"
+                android:textSize="15dp"
+                toos:text="Lublin"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

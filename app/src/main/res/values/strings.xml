@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RxProjectLesson</string>
+
+    <!--Errors-->
+    <string name="no_implemented">This feature not implemented yet.</string>
+
+
+</resources>
