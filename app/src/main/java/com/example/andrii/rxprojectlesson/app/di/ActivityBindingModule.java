@@ -1,5 +1,7 @@
 package com.example.andrii.rxprojectlesson.app.di;
 
+import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.CarDetailActivity;
+import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.di.CarDetailModule;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsActivity;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.di.CarsModule;
 import com.example.andrii.rxprojectlesson.ui.main.MainActivity;
@@ -21,4 +23,7 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector(modules = CarsModule.class)
     abstract CarsActivity bindCarsActivity();
+
+    @ContributesAndroidInjector(modules = CarDetailModule.class)
+    abstract CarDetailActivity bindCarsDetailActivity();
 }

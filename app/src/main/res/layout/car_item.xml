@@ -22,9 +22,7 @@
             android:layout_height="35dp"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/car_image_background">
-
-        </LinearLayout>
+            android:background="@drawable/car_image_white_background" />
 
         <RelativeLayout
             android:layout_width="match_parent"

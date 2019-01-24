@@ -58,4 +58,22 @@ public abstract class BaseActivity<V extends BaseContract.View, P extends BaseCo
     public void showDefaultErrorMessage() {
         Toast.makeText(this, getString(R.string.default_error), Toast.LENGTH_SHORT).show();
     }
+
+    protected String getStringFromExtra(String key) {
+        String stringValue = getIntent().getStringExtra(key);
+        if (stringValue != null) {
+            return stringValue;
+        } else {
+            throw new IllegalArgumentException(String.format("Value from %s should not be null", key));
+        }
+    }
+
+    protected Integer getIntegerFromExtra(String key) {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            return bundle.getInt(key);
+        } else {
+            throw new IllegalArgumentException(String.format("Value from %s should not be null", key));
+        }
+    }
 }

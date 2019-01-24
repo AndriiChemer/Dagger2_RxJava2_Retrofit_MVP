@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".ui.registration.RegistrationActivity" />
         <activity android:name=".ui.car.list.presentation.CarsActivity" />
+        <activity android:name=".ui.car.detail.presentation.CarDetailActivity"></activity>
     </application>
 
 </manifest>

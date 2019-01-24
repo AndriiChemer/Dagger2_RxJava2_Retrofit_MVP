@@ -4,9 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FAFAFA</color>
+    <color name="colorBlack">#1F1616</color>
     <color name="westar">#E3DFD7</color>
+    <color name="colorRed">#AE1C1C</color>
+    <color name="colorBlue">#13178A</color>
 
 
     <color name="textColorWhite">@color/colorWhite</color>
+    <color name="textColorBlue">@color/colorBlue</color>
+    <color name="priceColorRed">@color/colorRed</color>
+    <color name="imageBackgroundWhite">@color/colorWhite</color>
+    <color name="imageBackgroundBlack">@color/colorBlack</color>
     <color name="line">@color/westar</color>
 </resources>

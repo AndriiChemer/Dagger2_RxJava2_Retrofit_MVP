@@ -10,5 +10,5 @@ import dagger.Module;
 public abstract class CarsModule {
 
     @Binds
-    abstract CarsContract.Presenter provideCarsScreen(CarsPresenter presenter);
+    abstract CarsContract.Presenter bindPresenter(CarsPresenter presenter);
 }
