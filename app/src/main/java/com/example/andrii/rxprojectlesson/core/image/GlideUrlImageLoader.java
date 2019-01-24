@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.andrii.rxprojectlesson.R;
 
 import javax.inject.Inject;
 
@@ -19,6 +21,7 @@ public class GlideUrlImageLoader {
     public void loadInto(String imageUrl, ImageView imageView) {
         Glide.with(context)
                 .load(imageUrl)
+                .apply(new RequestOptions().placeholder(R.drawable.no_image).error(R.drawable.no_image))
                 .into(imageView);
     }
 }

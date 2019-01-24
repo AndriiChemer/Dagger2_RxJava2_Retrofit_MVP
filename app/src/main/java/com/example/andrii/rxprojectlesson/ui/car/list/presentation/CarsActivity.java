@@ -40,7 +40,7 @@ public class CarsActivity extends BaseActivity<CarsContract.View, CarsContract.P
     }
 
     private void prepareSkeleton() {
-        recyclerViewSkeletonScreen = SkeletonView.showSkeleton(recyclerView, adapter, R.layout.car_item);
+        recyclerViewSkeletonScreen = SkeletonView.showSkeleton(recyclerView, adapter, R.layout.car_item_skeleton);
     }
 
     private void prepareRecycler() {

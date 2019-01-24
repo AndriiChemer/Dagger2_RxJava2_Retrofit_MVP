@@ -7,13 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -25,5 +19,9 @@
             android:textStyle="bold"
             android:textSize="15dp"/>
 
+
+        <View
+            style="@style/Line"
+            android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

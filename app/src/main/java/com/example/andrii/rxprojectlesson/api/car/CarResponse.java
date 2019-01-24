@@ -20,7 +20,7 @@ public class CarResponse {
     private double lat;
     private double lng;
     private String fuel;
-    private double price;
+    private int price;
     private boolean auction;
     private String localimodelzation;
     private String photo;

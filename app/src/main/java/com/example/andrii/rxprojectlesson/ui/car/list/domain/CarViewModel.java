@@ -10,7 +10,7 @@ public class CarViewModel implements ListItem {
     private int id;
     private String brand;
     private String model;
-    private double price;
+    private int price;
     private String photo;
     private String fuel;
     private String localization;

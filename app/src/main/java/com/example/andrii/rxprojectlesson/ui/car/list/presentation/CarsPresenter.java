@@ -29,7 +29,7 @@ public class CarsPresenter
     }
 
     private void getCarsList() {
-        getCarsUseCase.execute(new SimpleSingleObserver<List<CarResponse>>(this) {
+        getCarsUseCase.executeDelay(3000, new SimpleSingleObserver<List<CarResponse>>(this) {
             @Override
             public void onSuccess(List<CarResponse> carResponses) {
                 doOnView(view -> {
