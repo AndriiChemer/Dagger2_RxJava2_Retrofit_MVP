@@ -5,5 +5,9 @@
     <string name="no_implemented">This feature not implemented yet.</string>
     <string name="default_error">Ops, something went wrong.</string>
 
+    <!--Car detail-->
+    <string name="violation_button">ZGŁOŚ NARUSZENIE</string>
+    <string name="show_number">Pokaż numer</string>
+
 
 </resources>

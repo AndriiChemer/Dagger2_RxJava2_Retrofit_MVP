@@ -7,13 +7,20 @@
     <color name="colorBlack">#1F1616</color>
     <color name="westar">#E3DFD7</color>
     <color name="colorRed">#AE1C1C</color>
+    <color name="colorRedPrimary">#BD2A2A</color>
     <color name="colorBlue">#13178A</color>
+    <color name="colorBlueLight">#3399FF</color>
+    <color name="colorBackgroundSecondary">#CCE6E6E6</color>
 
 
     <color name="textColorWhite">@color/colorWhite</color>
+    <color name="backgroundPrimary">@color/colorBackgroundSecondary</color>
     <color name="textColorBlue">@color/colorBlue</color>
     <color name="priceColorRed">@color/colorRed</color>
+    <color name="flagColorRed">@color/colorRedPrimary</color>
+    <color name="textColorRedPrimary">@color/colorRedPrimary</color>
     <color name="imageBackgroundWhite">@color/colorWhite</color>
     <color name="imageBackgroundBlack">@color/colorBlack</color>
+    <color name="locationColor">@color/colorBlueLight</color>
     <color name="line">@color/westar</color>
 </resources>
