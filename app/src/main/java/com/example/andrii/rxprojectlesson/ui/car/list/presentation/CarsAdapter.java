@@ -76,7 +76,7 @@ public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarVi
                 carImage.setBackground(context.getResources().getDrawable(R.drawable.no_image));
             }
 
-            price.setText(priceConverter.convert(car.getPrice()) + "PLN");
+            price.setText(priceConverter.convert(car.getPrice()));
             brandModelName.setText(car.getBrand() + " " + car.getModel());
             fuelType.setText(car.getFuel());
             localization.setText(car.getLocalization());

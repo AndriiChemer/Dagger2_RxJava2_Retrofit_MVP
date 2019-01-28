@@ -18,6 +18,7 @@
     <string name="localization">Localizacja</string>
     <string name="description">OPIS</string>
     <string name="fuel_type">Rodzaj paliwa</string>
+    <string name="pln">PLN</string>
 
 
 </resources>

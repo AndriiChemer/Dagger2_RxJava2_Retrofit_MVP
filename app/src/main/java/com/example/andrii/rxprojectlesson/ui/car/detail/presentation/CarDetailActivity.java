@@ -112,7 +112,7 @@ public class CarDetailActivity
         imageLoader.loadInto(carViewModel.getPhoto(), image);
         brandModelName.setText(carViewModel.getBrandModel());
         localization.setText(carViewModel.getLocalization());
-        price.setText(priceConverter.convert(carViewModel.getPrice()) + "PLN");
+        price.setText(priceConverter.convert(carViewModel.getPrice()));
         type.setText(carViewModel.getType());
         brand.setText(carViewModel.getBrand());
         model.setText(carViewModel.getModel());

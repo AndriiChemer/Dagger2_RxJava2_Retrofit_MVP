@@ -37,7 +37,17 @@
                 android:layout_above="@+id/brand_model_name"
                 android:textColor="@color/textColorWhite"
                 android:textSize="17dp"
-                tool:text="27000 PLN"/>
+                tool:text="27000 "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_toEndOf="@+id/price"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/brand_model_name"
+                android:textColor="@color/textColorWhite"
+                android:layout_marginStart="3dp"
+                android:textSize="13dp"
+                android:text="@string/pln"/>
 
             <TextView
                 android:id="@+id/brand_model_name"
