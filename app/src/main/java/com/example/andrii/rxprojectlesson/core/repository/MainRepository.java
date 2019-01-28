@@ -21,4 +21,8 @@ public class MainRepository {
     public Single<List<CarResponse>> getCars() {
         return api.getCars();
     }
+
+    public Single<CarResponse> getCarDetails(Integer carId) {
+        return api.getCarDetails(carId);
+    }
 }

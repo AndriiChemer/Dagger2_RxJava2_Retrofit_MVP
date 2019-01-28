@@ -1,7 +1,7 @@
 package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
 
 import com.example.andrii.rxprojectlesson.app.base.BaseContract;
-import com.example.andrii.rxprojectlesson.ui.car.list.domain.CarViewModel;
+import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface CarsContract {
 
         void showDefaultErrorMessage();
 
-        void hideSkeleton();
+        void hideRecyclerSkeletonView();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {

@@ -3,7 +3,7 @@ package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
 import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.app.base.BasePresenter;
 import com.example.andrii.rxprojectlesson.core.rx.SimpleSingleObserver;
-import com.example.andrii.rxprojectlesson.ui.car.list.domain.CarConverter;
+import com.example.andrii.rxprojectlesson.ui.car.list.converter.CarConverter;
 import com.example.andrii.rxprojectlesson.ui.car.list.domain.GetCarsUseCase;
 
 import java.util.List;
@@ -34,13 +34,17 @@ public class CarsPresenter
             public void onSuccess(List<CarResponse> carResponses) {
                 doOnView(view -> {
                     view.showCars(carConverter.convert(carResponses));
-                    view.hideSkeleton();
+                    view.hideRecyclerSkeletonView();
                 });
             }
 
             @Override
             public void onError(Throwable e) {
                 doOnView(CarsContract.View::showDefaultErrorMessage);
+                doOnView(view -> {
+                    view.hideRecyclerSkeletonView();
+                    view.showDefaultErrorMessage();
+                });
             }
         });
     }

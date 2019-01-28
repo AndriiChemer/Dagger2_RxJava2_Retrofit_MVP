@@ -14,7 +14,8 @@ import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ClickableAdapter;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ViewHolder;
-import com.example.andrii.rxprojectlesson.ui.car.list.domain.CarViewModel;
+import com.example.andrii.rxprojectlesson.ui.car.converter.PriceConverter;
+import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import javax.inject.Inject;
 
@@ -23,11 +24,13 @@ import butterknife.BindView;
 public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsAdapter.CarItemCallback> {
 
     private final Context context;
+    private final PriceConverter priceConverter;
     private final GlideUrlImageLoader imageLoader;
 
     @Inject
-    public CarsAdapter(Context context, GlideUrlImageLoader imageLoader) {
+    public CarsAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
         this.context = context;
+        this.priceConverter = priceConverter;
         this.imageLoader = imageLoader;
     }
 
@@ -73,7 +76,7 @@ public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarVi
                 carImage.setBackground(context.getResources().getDrawable(R.drawable.no_image));
             }
 
-            price.setText(String.valueOf(car.getPrice()) + " " + "PLN");
+            price.setText(priceConverter.convert(car.getPrice()) + "PLN");
             brandModelName.setText(car.getBrand() + " " + car.getModel());
             fuelType.setText(car.getFuel());
             localization.setText(car.getLocalization());

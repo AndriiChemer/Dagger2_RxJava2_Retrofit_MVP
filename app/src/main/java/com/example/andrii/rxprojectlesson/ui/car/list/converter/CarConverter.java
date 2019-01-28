@@ -1,7 +1,8 @@
-package com.example.andrii.rxprojectlesson.ui.car.list.domain;
+package com.example.andrii.rxprojectlesson.ui.car.list.converter;
 
 import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.core.converter.Converter;
+import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

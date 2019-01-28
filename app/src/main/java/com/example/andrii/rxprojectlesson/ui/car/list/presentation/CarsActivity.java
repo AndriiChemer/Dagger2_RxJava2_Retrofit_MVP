@@ -10,7 +10,9 @@ import com.ethanhua.skeleton.RecyclerViewSkeletonScreen;
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.core.skeleton.SkeletonView;
-import com.example.andrii.rxprojectlesson.ui.car.list.domain.CarViewModel;
+import com.example.andrii.rxprojectlesson.ui.car.converter.PriceConverter;
+import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.CarDetailActivity;
+import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import java.util.List;
 
@@ -25,8 +27,6 @@ public class CarsActivity extends BaseActivity<CarsContract.View, CarsContract.P
         context.startActivity(intent);
     }
 
-    RecyclerViewSkeletonScreen recyclerViewSkeletonScreen;
-
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
@@ -36,11 +36,7 @@ public class CarsActivity extends BaseActivity<CarsContract.View, CarsContract.P
     @Override
     protected void prepareView() {
         prepareRecycler();
-        prepareSkeleton();
-    }
-
-    private void prepareSkeleton() {
-        recyclerViewSkeletonScreen = SkeletonView.showSkeleton(recyclerView, adapter, R.layout.car_item_skeleton);
+        showSkeletonView(recyclerView, adapter, R.layout.car_item_skeleton);
     }
 
     private void prepareRecycler() {
@@ -61,11 +57,6 @@ public class CarsActivity extends BaseActivity<CarsContract.View, CarsContract.P
 
     @Override
     public void openCarDetailScreen(int id) {
-        showNoImplementedFeatureMessage();
-    }
-
-    @Override
-    public void hideSkeleton() {
-        recyclerViewSkeletonScreen.hide();
+        CarDetailActivity.start(this, id);
     }
 }
