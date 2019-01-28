@@ -4,18 +4,19 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.ui.car.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
+
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -79,6 +80,9 @@ public class CarDetailActivity
     @BindView(R.id.location_text)
     TextView locationText;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
     @OnClick(R.id.show_number)
     void showNumberButtonClick() {
         showNoImplementedFeatureMessage();
@@ -92,6 +96,12 @@ public class CarDetailActivity
     @OnClick(R.id.violation)
     void violationClick() {
         showNoImplementedFeatureMessage();
+    }
+
+    @Override
+    protected void prepareView() {
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

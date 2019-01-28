@@ -8,17 +8,20 @@
     <!--Car detail-->
     <string name="violation_button">ZGŁOŚ NARUSZENIE</string>
     <string name="show_number">Pokaż numer</string>
-    <string name="category">Kategoria</string>
     <string name="brand_car">Marka Pojazdu</string>
     <string name="model_car">Model Pojazdu</string>
     <string name="type">Typ</string>
-    <string name="state">Stan</string>
     <string name="used">Używany</string>
     <string name="cm_3">Pojemność skokowa</string>
     <string name="localization">Localizacja</string>
     <string name="description">OPIS</string>
     <string name="fuel_type">Rodzaj paliwa</string>
     <string name="pln">PLN</string>
+    <string name="brand">Marka Pojazdu</string>
+    <string name="category">Kategoria</string>
+    <string name="own">Osobowe</string>
+    <string name="stan">Stan</string>
+    <string name="localizationb">Localizacja</string>
 
 
 </resources>
