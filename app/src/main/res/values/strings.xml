@@ -22,6 +22,8 @@
     <string name="own">Osobowe</string>
     <string name="stan">Stan</string>
     <string name="localizationb">Localizacja</string>
+    <string name="save_filter">Zapisz filtry wyszukiwania</string>
+    <string name="filters">Filtry</string>
 
 
 </resources>

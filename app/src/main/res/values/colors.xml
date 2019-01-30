@@ -16,6 +16,7 @@
     <color name="textColorWhite">@color/colorWhite</color>
     <color name="backgroundPrimary">@color/colorBackgroundSecondary</color>
     <color name="textColorBlue">@color/colorBlue</color>
+    <color name="ColorBlueBackground">@color/colorBlue</color>
     <color name="priceColorRed">@color/colorRed</color>
     <color name="flagColorRed">@color/colorRedPrimary</color>
     <color name="textColorRedPrimary">@color/colorRedPrimary</color>

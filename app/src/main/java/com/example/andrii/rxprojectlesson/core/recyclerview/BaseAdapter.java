@@ -43,4 +43,9 @@ public abstract class BaseAdapter<T extends ListItem, VH extends ViewHolder> ext
     protected List<T> getItems() {
         return items;
     }
+
+    @Override
+    public int getItemViewType(int position) {
+        return itemAt(position).getViewType();
+    }
 }

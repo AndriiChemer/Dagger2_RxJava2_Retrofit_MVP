@@ -5,11 +5,20 @@
     android:id="@+id/toolbar_default"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    app:layout_collapseMode="pin">
+    app:layout_collapseMode="pin"
+    app:contentInsetStart="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginEnd="5dp">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_keyboard_arrow_left_blue_24dp"/>
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -20,6 +29,26 @@
             tools:text="Toolbar"
             android:textStyle="bold"
             android:textSize="15dp"/>
+
+        <ImageView
+            android:id="@+id/star_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_star_border_white_40dp"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            tools:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/view_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/star_favourite"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_check_box_outline_blue_black_24dp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

@@ -1,4 +1,4 @@
-package com.example.andrii.rxprojectlesson.ui.car.converter;
+package com.example.andrii.rxprojectlesson.core.converter;
 
 import com.example.andrii.rxprojectlesson.core.converter.Converter;
 

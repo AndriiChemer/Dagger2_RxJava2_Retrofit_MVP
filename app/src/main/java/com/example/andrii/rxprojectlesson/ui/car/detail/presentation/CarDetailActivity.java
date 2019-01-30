@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
+import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
-import com.example.andrii.rxprojectlesson.ui.car.converter.PriceConverter;
+import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
 
 import java.util.Objects;
@@ -24,7 +25,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class CarDetailActivity
-        extends BaseActivity<CarDetailContract.View, CarDetailContract.Presenter>
+        extends ToolbarActivity<CarDetailContract.View, CarDetailContract.Presenter>
         implements CarDetailContract.View {
 
     private static final String CAR_ID_KEY = "car_id_key";
@@ -80,9 +81,6 @@ public class CarDetailActivity
     @BindView(R.id.location_text)
     TextView locationText;
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-
     @OnClick(R.id.show_number)
     void showNumberButtonClick() {
         showNoImplementedFeatureMessage();
@@ -96,12 +94,6 @@ public class CarDetailActivity
     @OnClick(R.id.violation)
     void violationClick() {
         showNoImplementedFeatureMessage();
-    }
-
-    @Override
-    protected void prepareView() {
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -136,5 +128,15 @@ public class CarDetailActivity
     @Override
     public void showSkeleton() {
         showSkeletonView(container, R.layout.car_detail_activity_skeleton);
+    }
+
+    @Override
+    public boolean isArrowBackWhite() {
+        return true;
+    }
+
+    @Override
+    public boolean isStarVisibility() {
+        return true;
     }
 }
