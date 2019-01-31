@@ -3,6 +3,7 @@ package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 

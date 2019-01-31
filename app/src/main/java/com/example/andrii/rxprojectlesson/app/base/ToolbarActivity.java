@@ -1,11 +1,14 @@
 package com.example.andrii.rxprojectlesson.app.base;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.andrii.rxprojectlesson.R;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -16,8 +19,8 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
     @BindView(R.id.arrow_back)
     ImageView arrowBack;
 
-    @BindView(R.id.view_item)
-    ImageView viewRecyclerItem;
+    @BindView(R.id.view_recycler_item)
+    ImageView changeLayoutManagerButton;
 
     @BindView(R.id.star_favourite)
     ImageView starFavourite;
@@ -25,6 +28,30 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
     @OnClick(R.id.arrow_back)
     void arrowBackClick() {
         finish();
+    }
+
+    @OnClick(R.id.view_recycler_item)
+    void changeLayoutManagerClick() {
+        if (drawableEquals(Objects.requireNonNull(getDrawable(R.drawable.ic_check_box_outline_blue_black_24dp)))) {
+            setRecyclerViewBackgroundButton(R.drawable.ic_border_all_blue_24dp);
+            //TODO set Layout Manager
+        } else if (drawableEquals(Objects.requireNonNull(getDrawable(R.drawable.ic_border_all_blue_24dp)))) {
+            setRecyclerViewBackgroundButton(R.drawable.ic_drag_handle_blue_24dp);
+            //TODO change
+        } else if (drawableEquals(Objects.requireNonNull(getDrawable(R.drawable.ic_drag_handle_blue_24dp)))) {
+            setRecyclerViewBackgroundButton(R.drawable.ic_check_box_outline_blue_black_24dp);
+            //TODO change
+        }
+    }
+
+    private void setRecyclerViewBackgroundButton(int resDrawable) {
+        changeLayoutManagerButton.setBackground(getDrawable(resDrawable));
+    }
+
+    private boolean drawableEquals(Drawable drawable) {
+        Drawable.ConstantState currentDrawable = changeLayoutManagerButton.getBackground().getConstantState();
+        Drawable.ConstantState sameDrawable = drawable.getConstantState();
+        return Objects.requireNonNull(currentDrawable).equals(sameDrawable);
     }
 
     @Override
@@ -36,7 +63,7 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
         }
 
         if (isViewRecyclerItemVisibility()) {
-            viewRecyclerItem.setVisibility(View.VISIBLE);
+            changeLayoutManagerButton.setVisibility(View.VISIBLE);
         }
 
         if (isStarVisibility()) {
