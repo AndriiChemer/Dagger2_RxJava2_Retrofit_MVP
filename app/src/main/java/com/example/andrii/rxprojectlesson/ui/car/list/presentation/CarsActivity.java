@@ -3,24 +3,20 @@ package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.andrii.rxprojectlesson.R;
-import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
-import com.example.andrii.rxprojectlesson.core.recyclerview.ListItem;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.CarDetailActivity;
-import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarHeaderViewModel;
 import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class CarsActivity extends ToolbarActivity<CarsContract.View, CarsContract.Presenter> implements CarsContract.View {
 
@@ -34,6 +30,16 @@ public class CarsActivity extends ToolbarActivity<CarsContract.View, CarsContrac
 
     @Inject
     protected CarsAdapter adapter;
+
+    @OnClick(R.id.filter)
+    void filterClick() {
+        showNoImplementedFeatureMessage();
+    }
+
+    @OnClick(R.id.save_filter)
+    void saveFilterClick() {
+        showNoImplementedFeatureMessage();
+    }
 
     @Override
     protected void prepareView() {
@@ -54,26 +60,7 @@ public class CarsActivity extends ToolbarActivity<CarsContract.View, CarsContrac
 
     @Override
     public void showCars(List<CarViewModel> listCars) {
-        List<ListItem> listItems = new ArrayList<>();
-        listItems.add(new CarHeaderViewModel());
-        listItems.addAll(listCars);
-
-        adapter.setItems(listItems, new CarsAdapter.CarItemCallback(){
-            @Override
-            public void onClick(int id) {
-                presenter.onItemAdapterClick(id);
-            }
-
-            @Override
-            public void saveFilterClick() {
-                showNoImplementedFeatureMessage();
-            }
-
-            @Override
-            public void filterClick() {
-                showNoImplementedFeatureMessage();
-            }
-        });
+        adapter.setItems(listCars, id -> presenter.onItemAdapterClick(id));
     }
 
     @Override

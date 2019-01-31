@@ -14,6 +14,7 @@
 
 
     <color name="textColorWhite">@color/colorWhite</color>
+    <color name="toolbarBackground">@color/colorWhite</color>
     <color name="backgroundPrimary">@color/colorBackgroundSecondary</color>
     <color name="textColorBlue">@color/colorBlue</color>
     <color name="ColorBlueBackground">@color/colorBlue</color>

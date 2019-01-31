@@ -3,21 +3,18 @@ package com.example.andrii.rxprojectlesson.ui.car.detail.presentation;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
-import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
-
-import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -137,6 +134,11 @@ public class CarDetailActivity
 
     @Override
     public boolean isStarVisibility() {
+        return true;
+    }
+
+    @Override
+    public boolean isToolbarTransparent() {
         return true;
     }
 }

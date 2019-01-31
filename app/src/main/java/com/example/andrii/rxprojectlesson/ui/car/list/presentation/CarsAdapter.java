@@ -13,17 +13,15 @@ import android.widget.TextView;
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ClickableAdapter;
-import com.example.andrii.rxprojectlesson.core.recyclerview.ListItem;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ViewHolder;
 import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
-import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarHeaderViewModel;
 import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class CarsAdapter extends ClickableAdapter<ListItem, ViewHolder<ListItem>, CarsAdapter.CarItemCallback> {
+public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsAdapter.CarItemCallback> {
 
     private final Context context;
     private final PriceConverter priceConverter;
@@ -38,40 +36,15 @@ public class CarsAdapter extends ClickableAdapter<ListItem, ViewHolder<ListItem>
 
     @NonNull
     @Override
-    public ViewHolder<ListItem> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder<CarViewModel> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        if (viewType == CarViewHolder.VIEW_TYPE) {
-            View view = inflater.inflate(R.layout.car_item, parent, false);
-            return new CarViewHolder(view);
-        } else {
-            View view = inflater.inflate(R.layout.car_item_header, parent, false);
-            return new HeaderViewHolder(view);
-        }
+        View view = inflater.inflate(R.layout.car_item, parent, false);
+        return new CarViewHolder(view);
     }
 
-    public class HeaderViewHolder extends ViewHolder<ListItem> {
-
-        public static final int HEADER_VIEW_TYPE = 1;
-
-        @BindView(R.id.save_filter)
-        TextView saveFilter;
-        @BindView(R.id.filter)
-        TextView filter;
-
-        HeaderViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
-
-        @Override
-        public void bind(ListItem carInterface) {
-            saveFilter.setOnClickListener(v -> getListener().saveFilterClick());
-            filter.setOnClickListener(v -> getListener().filterClick());
-        }
-    }
-
-    public class CarViewHolder extends ViewHolder<ListItem> {
+    public class CarViewHolder extends ViewHolder<CarViewModel> {
 
         public static final int VIEW_TYPE = 0;
 
@@ -96,8 +69,7 @@ public class CarsAdapter extends ClickableAdapter<ListItem, ViewHolder<ListItem>
 
         @SuppressLint("SetTextI18n")
         @Override
-        public void bind(ListItem carInterface) {
-            CarViewModel car = (CarViewModel) carInterface;
+        public void bind(CarViewModel car) {
 
             if (car.getPhoto() != null) {
                 imageLoader.loadInto(car.getPhoto(), carImage);
@@ -115,7 +87,5 @@ public class CarsAdapter extends ClickableAdapter<ListItem, ViewHolder<ListItem>
 
     interface CarItemCallback {
         void onClick(int id);
-        void saveFilterClick();
-        void filterClick();
     }
 }

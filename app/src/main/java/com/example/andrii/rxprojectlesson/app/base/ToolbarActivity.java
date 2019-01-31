@@ -1,8 +1,10 @@
 package com.example.andrii.rxprojectlesson.app.base;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,6 +17,12 @@ import butterknife.OnClick;
 
 public abstract class ToolbarActivity<V extends BaseContract.View, P extends BaseContract.Presenter<V>>
         extends BaseActivity<V, P> {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.line)
+    View line;
 
     @BindView(R.id.arrow_back)
     ImageView arrowBack;
@@ -69,6 +77,11 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
         if (isStarVisibility()) {
             starFavourite.setVisibility(View.VISIBLE);
         }
+
+        if (isToolbarTransparent()) {
+            toolbar.setBackgroundColor(Color.TRANSPARENT);
+            line.setBackgroundColor(Color.TRANSPARENT);
+        }
     }
 
     public boolean isArrowBackWhite() {
@@ -80,6 +93,10 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
     }
 
     public boolean isStarVisibility() {
+        return false;
+    }
+
+    public boolean isToolbarTransparent() {
         return false;
     }
 
