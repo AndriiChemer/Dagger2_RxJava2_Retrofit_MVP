@@ -6,6 +6,8 @@ import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsActivity;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.di.CarsModule;
 import com.example.andrii.rxprojectlesson.ui.main.MainActivity;
 import com.example.andrii.rxprojectlesson.ui.main.di.MainModule;
+import com.example.andrii.rxprojectlesson.ui.map.presentation.MapActivity;
+import com.example.andrii.rxprojectlesson.ui.map.presentation.di.MapModule;
 import com.example.andrii.rxprojectlesson.ui.registration.RegistrationActivity;
 import com.example.andrii.rxprojectlesson.ui.registration.di.RegistrationModule;
 
@@ -26,4 +28,7 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector(modules = CarDetailModule.class)
     abstract CarDetailActivity bindCarsDetailActivity();
+
+    @ContributesAndroidInjector(modules = MapModule.class)
+    abstract MapActivity bindMapActivity();
 }

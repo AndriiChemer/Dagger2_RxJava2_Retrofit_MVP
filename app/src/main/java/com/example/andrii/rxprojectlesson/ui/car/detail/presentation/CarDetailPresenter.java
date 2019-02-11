@@ -4,7 +4,9 @@ import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.app.base.BasePresenter;
 import com.example.andrii.rxprojectlesson.core.rx.SimpleSingleObserver;
 import com.example.andrii.rxprojectlesson.ui.car.detail.converter.CarDetailConverter;
+import com.example.andrii.rxprojectlesson.ui.car.detail.converter.CarDetailMapConverter;
 import com.example.andrii.rxprojectlesson.ui.car.detail.domain.GetCarDetailUseCase;
+import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
 
 import javax.inject.Inject;
 
@@ -12,12 +14,16 @@ public class CarDetailPresenter
         extends BasePresenter<CarDetailContract.View>
         implements CarDetailContract.Presenter {
 
+    private CarDetailViewModel carDetailViewModel;
+
     private final CarDetailConverter carDetailConverter;
+    private final CarDetailMapConverter carDetailMapConverter;
     private final GetCarDetailUseCase getCarDetailUseCase;
 
     @Inject
-    public CarDetailPresenter(CarDetailConverter carDetailConverter, GetCarDetailUseCase getCarDetailUseCase) {
+    public CarDetailPresenter(CarDetailConverter carDetailConverter, CarDetailMapConverter carDetailMapConverter, GetCarDetailUseCase getCarDetailUseCase) {
         this.carDetailConverter = carDetailConverter;
+        this.carDetailMapConverter = carDetailMapConverter;
         this.getCarDetailUseCase = getCarDetailUseCase;
     }
 
@@ -31,8 +37,9 @@ public class CarDetailPresenter
         getCarDetailUseCase.execute(carId, new SimpleSingleObserver<CarResponse>(this) {
             @Override
             public void onSuccess(CarResponse carResponse) {
+                carDetailViewModel = carDetailConverter.convert(carResponse);
                 doOnView(view -> {
-                    view.showCarDetail(carDetailConverter.convert(carResponse));
+                    view.showCarDetail(carDetailViewModel);
                     view.hideSkeletonView();
                 });
             }
@@ -46,5 +53,10 @@ public class CarDetailPresenter
                 });
             }
         });
+    }
+
+    @Override
+    public void onLocalizationClick() {
+        doOnView(view -> view.openMapScreen(carDetailMapConverter.convert(carDetailViewModel)));
     }
 }

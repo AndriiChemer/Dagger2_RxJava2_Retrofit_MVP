@@ -2,6 +2,7 @@ package com.example.andrii.rxprojectlesson.ui.car.detail.presentation;
 
 import com.example.andrii.rxprojectlesson.app.base.BaseContract;
 import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
+import com.example.andrii.rxprojectlesson.ui.map.viewmodel.CarDetailMapViewModel;
 
 public interface CarDetailContract {
 
@@ -14,10 +15,14 @@ public interface CarDetailContract {
         void showSkeleton();
 
         void hideSkeletonView();
+
+        void openMapScreen(CarDetailMapViewModel convert);
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
 
         void onCarDataSuccessfullyRetrieved(Integer carId);
+
+        void onLocalizationClick();
     }
 }

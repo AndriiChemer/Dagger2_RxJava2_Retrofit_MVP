@@ -15,6 +15,8 @@ import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
+import com.example.andrii.rxprojectlesson.ui.map.presentation.MapActivity;
+import com.example.andrii.rxprojectlesson.ui.map.viewmodel.CarDetailMapViewModel;
 
 import javax.inject.Inject;
 
@@ -26,12 +28,13 @@ public class CarDetailActivity
         implements CarDetailContract.View {
 
     private static final String CAR_ID_KEY = "car_id_key";
-
     public static void start(Context context, Integer idCar) {
         Intent intent = new Intent(context, CarDetailActivity.class);
         intent.putExtra(CAR_ID_KEY, idCar);
         context.startActivity(intent);
     }
+
+    private CarDetailViewModel carViewModel;
 
     @Inject
     protected PriceConverter priceConverter;
@@ -85,7 +88,7 @@ public class CarDetailActivity
 
     @OnClick(R.id.location_click)
     void localizationClick() {
-        showNoImplementedFeatureMessage();
+        presenter.onLocalizationClick();
     }
 
     @OnClick(R.id.violation)
@@ -108,6 +111,8 @@ public class CarDetailActivity
     @SuppressLint("SetTextI18n")
     @Override
     public void showCarDetail(CarDetailViewModel carViewModel) {
+        this.carViewModel = carViewModel;
+
         imageLoader.loadInto(carViewModel.getPhoto(), image);
         brandModelName.setText(carViewModel.getBrandModel());
         localization.setText(carViewModel.getLocalization());
@@ -125,6 +130,11 @@ public class CarDetailActivity
     @Override
     public void showSkeleton() {
         showSkeletonView(container, R.layout.car_detail_activity_skeleton);
+    }
+
+    @Override
+    public void openMapScreen(CarDetailMapViewModel carViewModel) {
+        MapActivity.start(this, carViewModel);
     }
 
     @Override
