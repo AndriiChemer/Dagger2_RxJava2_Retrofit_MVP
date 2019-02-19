@@ -21,14 +21,14 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsAdapter.CarItemCallback> {
+public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
 
     private final Context context;
     private final PriceConverter priceConverter;
     private final GlideUrlImageLoader imageLoader;
 
     @Inject
-    public CarsAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
+    public CarsLinearLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
         this.context = context;
         this.priceConverter = priceConverter;
         this.imageLoader = imageLoader;
@@ -40,7 +40,7 @@ public class CarsAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarVi
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.car_item, parent, false);
+        View view = inflater.inflate(R.layout.car_linear_manager_item, parent, false);
         return new CarViewHolder(view);
     }
 

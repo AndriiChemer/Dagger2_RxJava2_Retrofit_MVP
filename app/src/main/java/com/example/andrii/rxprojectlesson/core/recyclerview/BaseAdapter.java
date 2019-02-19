@@ -3,6 +3,8 @@ package com.example.andrii.rxprojectlesson.core.recyclerview;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarGridLayoutAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

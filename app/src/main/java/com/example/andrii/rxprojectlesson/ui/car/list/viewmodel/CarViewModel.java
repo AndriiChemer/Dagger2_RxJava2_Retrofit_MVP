@@ -1,7 +1,7 @@
 package com.example.andrii.rxprojectlesson.ui.car.list.viewmodel;
 
 import com.example.andrii.rxprojectlesson.core.recyclerview.ListItem;
-import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsAdapter;
+import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsLinearLayoutAdapter;
 
 import lombok.Value;
 
@@ -17,6 +17,6 @@ public class CarViewModel implements ListItem {
 
     @Override
     public int getViewType() {
-        return CarsAdapter.CarViewHolder.VIEW_TYPE;
+        return CarsLinearLayoutAdapter.CarViewHolder.VIEW_TYPE;
     }
 }

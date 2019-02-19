@@ -28,7 +28,7 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
     ImageView arrowBack;
 
     @BindView(R.id.view_recycler_item)
-    ImageView changeLayoutManagerButton;
+    protected ImageView changeLayoutManagerButton;
 
     @BindView(R.id.star_favourite)
     ImageView starFavourite;
@@ -36,30 +36,6 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
     @OnClick(R.id.arrow_back)
     void arrowBackClick() {
         finish();
-    }
-
-    @OnClick(R.id.view_recycler_item)
-    void changeLayoutManagerClick() {
-        if (drawableEquals(Objects.requireNonNull(getDrawable(R.drawable.ic_check_box_outline_blue_black_24dp)))) {
-            setRecyclerViewBackgroundButton(R.drawable.ic_border_all_blue_24dp);
-            //TODO set Layout Manager
-        } else if (drawableEquals(Objects.requireNonNull(getDrawable(R.drawable.ic_border_all_blue_24dp)))) {
-            setRecyclerViewBackgroundButton(R.drawable.ic_drag_handle_blue_24dp);
-            //TODO change
-        } else if (drawableEquals(Objects.requireNonNull(getDrawable(R.drawable.ic_drag_handle_blue_24dp)))) {
-            setRecyclerViewBackgroundButton(R.drawable.ic_check_box_outline_blue_black_24dp);
-            //TODO change
-        }
-    }
-
-    private void setRecyclerViewBackgroundButton(int resDrawable) {
-        changeLayoutManagerButton.setBackground(getDrawable(resDrawable));
-    }
-
-    private boolean drawableEquals(Drawable drawable) {
-        Drawable.ConstantState currentDrawable = changeLayoutManagerButton.getBackground().getConstantState();
-        Drawable.ConstantState sameDrawable = drawable.getConstantState();
-        return Objects.requireNonNull(currentDrawable).equals(sameDrawable);
     }
 
     @Override
@@ -106,5 +82,11 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
         } else {
             starFavourite.setBackground(getResources().getDrawable(R.drawable.ic_star_border_white_40dp));
         }
+    }
+
+    protected boolean drawableEquals(Drawable drawable) {
+        Drawable.ConstantState currentDrawable = changeLayoutManagerButton.getBackground().getConstantState();
+        Drawable.ConstantState sameDrawable = drawable.getConstantState();
+        return Objects.requireNonNull(currentDrawable).equals(sameDrawable);
     }
 }
