@@ -74,6 +74,11 @@ dependencies {
     ///////////////////////////////////////////////////////////////////////////
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
+    ///////////////////////////////////////////////////////////////////////////
+    // Material dialog
+    ///////////////////////////////////////////////////////////////////////////
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     annotationProcessor 'org.projectlombok:lombok:1.16.20'
 

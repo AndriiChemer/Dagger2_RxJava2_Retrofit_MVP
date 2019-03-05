@@ -17,6 +17,14 @@ public interface CarDetailContract {
         void hideSkeletonView();
 
         void openMapScreen(CarDetailMapViewModel convert);
+
+        boolean hasCallPhonePermission();
+
+        void callPhoneNumber(String phoneNumber);
+
+        void requestCallPhonePermission();
+
+        void prepareDialog(String phoneNumber);
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
@@ -24,5 +32,7 @@ public interface CarDetailContract {
         void onCarDataSuccessfullyRetrieved(Integer carId);
 
         void onLocalizationClick();
+
+        void onCallButtonClick(String phoneNumber);
     }
 }

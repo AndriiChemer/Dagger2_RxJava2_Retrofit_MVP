@@ -20,7 +20,7 @@ public class PermissionChecker {
         this.permission = permission;
     }
 
-    public boolean nasPermission() {
+    public boolean hasPermission() {
         int permissionCheckResult = ContextCompat.checkSelfPermission(activity, permission);
         return permissionCheckResult == PackageManager.PERMISSION_GRANTED;
     }

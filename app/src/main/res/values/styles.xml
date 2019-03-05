@@ -14,4 +14,21 @@
         <item name="android:background">@color/line</item>
     </style>
 
+    <style name="Button" parent="@android:style/Widget.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="ButtonBlue" parent="Button">
+        <item name="android:background">@drawable/rounded_button_blue_background</item>
+        <item name="android:textColor">@color/textColorWhite</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="ButtonWhite" parent="Button">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColor">@color/textColorBlue</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
 </resources>

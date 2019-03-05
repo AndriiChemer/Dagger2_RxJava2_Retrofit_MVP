@@ -25,5 +25,11 @@
     <string name="save_filter">Zapisz filtry wyszukiwania</string>
     <string name="filters">Filtry</string>
 
+    <!--Call dialog-->
+    <string name="title_call">Chcesz zadzwonić?</string>
+    <string name="tel">tel:</string>
+    <string name="call_button">Call</string>
+    <string name="cancel_button">Cancel</string>
+
 
 </resources>

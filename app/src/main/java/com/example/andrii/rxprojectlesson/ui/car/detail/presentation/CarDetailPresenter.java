@@ -40,6 +40,7 @@ public class CarDetailPresenter
                 carDetailViewModel = carDetailConverter.convert(carResponse);
                 doOnView(view -> {
                     view.showCarDetail(carDetailViewModel);
+                    view.prepareDialog("+48537778445");
                     view.hideSkeletonView();
                 });
             }
@@ -58,5 +59,16 @@ public class CarDetailPresenter
     @Override
     public void onLocalizationClick() {
         doOnView(view -> view.openMapScreen(carDetailMapConverter.convert(carDetailViewModel)));
+    }
+
+    @Override
+    public void onCallButtonClick(String phoneNumber) {
+        doOnView(view -> {
+            if (view.hasCallPhonePermission()){
+                view.callPhoneNumber(phoneNumber);
+            } else {
+                view.requestCallPhonePermission();
+            }
+        });
     }
 }
