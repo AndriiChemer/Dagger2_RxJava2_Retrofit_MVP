@@ -33,6 +33,7 @@ public class CarConverter implements Converter<List<CarResponse>, List<CarViewMo
                 carResponse.getPrice(),
                 carResponse.getPhoto(),
                 carResponse.getFuel(),
-                carResponse.getLocalimodelzation());
+                carResponse.getLocalization(),
+                carResponse.isFavorite());
     }
 }

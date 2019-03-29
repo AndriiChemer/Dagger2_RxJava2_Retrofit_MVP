@@ -9,17 +9,25 @@ public interface CarsContract {
 
     interface View extends BaseContract.View {
 
-        void showCars(List<CarViewModel> listCars);
-
         void openCarDetailScreen(int id);
 
         void showDefaultErrorMessage();
 
         void hideRecyclerSkeletonView();
+
+        void finishCurrentActivity();
+
+        void showPositiveFavoriteMessage(int stringRes);
+
+        void showNegativeFavoriteMessage();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
 
         void onItemAdapterClick(int id);
+
+        void onArrowBackClick();
+
+        void onFavoriteButtonClick(int carId, boolean isFavorite);
     }
 }

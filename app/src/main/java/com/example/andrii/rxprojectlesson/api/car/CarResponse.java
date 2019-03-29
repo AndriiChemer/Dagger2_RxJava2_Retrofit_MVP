@@ -22,6 +22,7 @@ public class CarResponse {
     private String fuel;
     private int price;
     private boolean auction;
-    private String localimodelzation;
+    private String localization;
     private String photo;
+    private boolean isFavorite;
 }

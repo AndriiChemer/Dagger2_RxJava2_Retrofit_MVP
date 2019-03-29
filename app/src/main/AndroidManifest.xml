@@ -25,18 +25,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.registration.RegistrationActivity" />
-        <activity android:name=".ui.car.list.presentation.CarsActivity" />
         <activity android:name=".ui.car.detail.presentation.CarDetailActivity" />
         <activity android:name=".ui.map.presentation.MapActivity" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBBZTi8oshfVGQ1CaF6os7GQknQHK9Cyw4" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity
+            android:name=".ui.car.presentation.CarActivity"
+            android:label="@string/title_activity_car"></activity>
     </application>
 
 </manifest>

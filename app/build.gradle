@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
 apply from: 'dependencies.gradle'
 
 android {
@@ -21,6 +25,10 @@ android {
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
+    }
+
+    kapt {
+        generateStubs = true
     }
 }
 
@@ -78,6 +86,11 @@ dependencies {
     // Material dialog
     ///////////////////////////////////////////////////////////////////////////
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+    ///////////////////////////////////////////////////////////////////////////
+    // preferences
+    ///////////////////////////////////////////////////////////////////////////
+    implementation 'com.scottyab:secure-preferences-lib:0.1.4'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     annotationProcessor 'org.projectlombok:lombok:1.16.20'

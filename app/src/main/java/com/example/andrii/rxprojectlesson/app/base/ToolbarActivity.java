@@ -46,7 +46,7 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
             arrowBack.setBackground(getDrawable(R.drawable.ic_keyboard_arrow_left_white_24dp));
         }
 
-        if (isViewRecyclerItemVisibility()) {
+        if (isRecyclerButtonVisibility()) {
             changeLayoutManagerButton.setVisibility(View.VISIBLE);
         }
 
@@ -64,7 +64,7 @@ public abstract class ToolbarActivity<V extends BaseContract.View, P extends Bas
         return false;
     }
 
-    public boolean isViewRecyclerItemVisibility() {
+    public boolean isRecyclerButtonVisibility() {
         return false;
     }
 

@@ -23,7 +23,7 @@ public class CarDetailConverter implements Converter<CarResponse, CarDetailViewM
                 car.getPrice(),
                 car.getPhoto(),
                 car.getFuel(),
-                car.getLocalimodelzation(),
+                car.getLocalization(),
                 car.getCategory(),
                 car.getLat(),
                 car.getLng(),

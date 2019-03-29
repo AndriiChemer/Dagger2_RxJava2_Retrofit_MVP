@@ -1,6 +1,7 @@
 package com.example.andrii.rxprojectlesson.app.base;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,7 +26,7 @@ public class MVPFragment<V extends BaseContract.View, P extends BaseContract.Pre
         preparePresenter();
     }
 
-    private void prepareView() {
+    protected void prepareView() {
 
     }
 
@@ -42,7 +43,9 @@ public class MVPFragment<V extends BaseContract.View, P extends BaseContract.Pre
         presenter.attachView((V) this);
     }
 
-    public P presenter() { return  presenter; }
+    public P presenter() {
+        return presenter;
+    }
 
     @Override
     public void onDestroy() {

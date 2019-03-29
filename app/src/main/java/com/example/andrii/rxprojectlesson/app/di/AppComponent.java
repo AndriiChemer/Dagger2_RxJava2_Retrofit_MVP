@@ -4,6 +4,7 @@ import com.example.andrii.rxprojectlesson.app.Application;
 import com.example.andrii.rxprojectlesson.app.modules.APIModule;
 import com.example.andrii.rxprojectlesson.app.modules.AppModule;
 import com.example.andrii.rxprojectlesson.app.modules.NetworkModule;
+import com.example.andrii.rxprojectlesson.app.modules.PreferencesModule;
 import com.example.andrii.rxprojectlesson.app.modules.SchedulerModule;
 
 import javax.inject.Singleton;
@@ -18,7 +19,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ActivityBindingModule.class,
         AppModule.class,
         SchedulerModule.class,
-        APIModule.class
+        APIModule.class,
+        PreferencesModule.class
 })
 public interface AppComponent extends AndroidInjector<Application> {
 

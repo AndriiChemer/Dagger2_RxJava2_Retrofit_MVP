@@ -1,4 +1,4 @@
-package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
+package com.example.andrii.rxprojectlesson.ui.car.list.presentation.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
@@ -22,14 +21,14 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class CarGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
+public class CarStaggeredGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
 
     private final Context context;
     private final PriceConverter priceConverter;
     private final GlideUrlImageLoader imageLoader;
 
     @Inject
-    public CarGridLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
+    public CarStaggeredGridLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
         this.context = context;
         this.priceConverter = priceConverter;
         this.imageLoader = imageLoader;
@@ -41,7 +40,7 @@ public class CarGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHol
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.car_grid_manager_item, parent, false);
+        View view = inflater.inflate(R.layout.car_staggered_grid_manager_item, parent, false);
         return new CarViewHolder(view);
     }
 
@@ -59,8 +58,6 @@ public class CarGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHol
         ImageView fuelImage;
         @BindView(R.id.fuel_type)
         TextView fuelType;
-        @BindView(R.id.year)
-        TextView year;
 
         CarViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -1,4 +1,4 @@
-package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
+package com.example.andrii.rxprojectlesson.ui.car.list.presentation.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,24 +11,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
-import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ClickableAdapter;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ViewHolder;
+import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class CarStaggeredGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
+public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
 
     private final Context context;
     private final PriceConverter priceConverter;
     private final GlideUrlImageLoader imageLoader;
 
     @Inject
-    public CarStaggeredGridLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
+    public CarsLinearLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
         this.context = context;
         this.priceConverter = priceConverter;
         this.imageLoader = imageLoader;
@@ -40,12 +40,16 @@ public class CarStaggeredGridLayoutAdapter extends ClickableAdapter<CarViewModel
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.car_staggered_grid_manager_item, parent, false);
+        View view = inflater.inflate(R.layout.car_linear_manager_item, parent, false);
         return new CarViewHolder(view);
     }
 
     public class CarViewHolder extends ViewHolder<CarViewModel> {
 
+        public static final int VIEW_TYPE = 0;
+
+        @BindView(R.id.favorite_button)
+        ImageView favoriteButton;
         @BindView(R.id.card_item_container)
         CardView container;
         @BindView(R.id.image)
@@ -58,6 +62,8 @@ public class CarStaggeredGridLayoutAdapter extends ClickableAdapter<CarViewModel
         ImageView fuelImage;
         @BindView(R.id.fuel_type)
         TextView fuelType;
+        @BindView(R.id.localization)
+        TextView localization;
 
         CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,7 +82,32 @@ public class CarStaggeredGridLayoutAdapter extends ClickableAdapter<CarViewModel
             price.setText(priceConverter.convert(car.getPrice()));
             brandModelName.setText(car.getBrand() + " " + car.getModel());
             fuelType.setText(car.getFuel());
+            localization.setText(car.getLocalization());
             container.setOnClickListener(v -> getListener().onClick(car.getId()));
+            favoriteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean isFavorite = changeFavoriteButton(car.isFavorite(), favoriteButton);
+                    car.setFavorite(isFavorite);
+                    getListener().onFavoriteClick(car.getId(), car.isFavorite());
+                }
+            });
         }
+    }
+
+    private boolean changeFavoriteButton(boolean isFavorite, ImageView favoriteButton) {
+        if (isFavorite) {
+            favoriteButton.setImageResource(R.drawable.ic_star_border_white_40dp);
+            return false;
+        } else {
+            favoriteButton.setImageResource(R.drawable.ic_star_white_40dp);
+            return true;
+        }
+    }
+
+    public interface CarItemCallback {
+        void onClick(int id);
+
+        void onFavoriteClick(int id, boolean isFavorite);
     }
 }

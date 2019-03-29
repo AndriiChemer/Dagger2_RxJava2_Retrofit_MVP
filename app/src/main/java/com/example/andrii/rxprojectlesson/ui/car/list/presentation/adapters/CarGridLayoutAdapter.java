@@ -1,4 +1,4 @@
-package com.example.andrii.rxprojectlesson.ui.car.list.presentation;
+package com.example.andrii.rxprojectlesson.ui.car.list.presentation.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,24 +11,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
+import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ClickableAdapter;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ViewHolder;
-import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
 import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
+public class CarGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHolder<CarViewModel>, CarsLinearLayoutAdapter.CarItemCallback> {
 
     private final Context context;
     private final PriceConverter priceConverter;
     private final GlideUrlImageLoader imageLoader;
 
     @Inject
-    public CarsLinearLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
+    public CarGridLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
         this.context = context;
         this.priceConverter = priceConverter;
         this.imageLoader = imageLoader;
@@ -40,13 +40,11 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.car_linear_manager_item, parent, false);
+        View view = inflater.inflate(R.layout.car_grid_manager_item, parent, false);
         return new CarViewHolder(view);
     }
 
     public class CarViewHolder extends ViewHolder<CarViewModel> {
-
-        public static final int VIEW_TYPE = 0;
 
         @BindView(R.id.card_item_container)
         CardView container;
@@ -60,8 +58,8 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
         ImageView fuelImage;
         @BindView(R.id.fuel_type)
         TextView fuelType;
-        @BindView(R.id.localization)
-        TextView localization;
+        @BindView(R.id.year)
+        TextView year;
 
         CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,12 +78,7 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
             price.setText(priceConverter.convert(car.getPrice()));
             brandModelName.setText(car.getBrand() + " " + car.getModel());
             fuelType.setText(car.getFuel());
-            localization.setText(car.getLocalization());
             container.setOnClickListener(v -> getListener().onClick(car.getId()));
         }
-    }
-
-    interface CarItemCallback {
-        void onClick(int id);
     }
 }
