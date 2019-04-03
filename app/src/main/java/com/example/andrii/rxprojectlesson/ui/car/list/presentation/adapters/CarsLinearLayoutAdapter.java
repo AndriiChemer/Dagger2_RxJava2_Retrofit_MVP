@@ -44,6 +44,8 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
         return new CarViewHolder(view);
     }
 
+
+
     public class CarViewHolder extends ViewHolder<CarViewModel> {
 
         public static final int VIEW_TYPE = 0;
@@ -71,7 +73,7 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
 
         @SuppressLint("SetTextI18n")
         @Override
-        public void bind(CarViewModel car) {
+        public void bind(CarViewModel car, int adapterPosition) {
 
             if (car.getPhoto() != null) {
                 imageLoader.loadInto(car.getPhoto(), carImage);
@@ -84,13 +86,10 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
             fuelType.setText(car.getFuel());
             localization.setText(car.getLocalization());
             container.setOnClickListener(v -> getListener().onClick(car.getId()));
-            favoriteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    boolean isFavorite = changeFavoriteButton(car.isFavorite(), favoriteButton);
-                    car.setFavorite(isFavorite);
-                    getListener().onFavoriteClick(car.getId(), car.isFavorite());
-                }
+            favoriteButton.setOnClickListener(v -> {
+                boolean isFavorite = changeFavoriteButton(car.isFavorite(), favoriteButton);
+                car.setFavorite(isFavorite);
+                getListener().onFavoriteClick(car.getId(), car.isFavorite(), adapterPosition);
             });
         }
     }
@@ -108,6 +107,6 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
     public interface CarItemCallback {
         void onClick(int id);
 
-        void onFavoriteClick(int id, boolean isFavorite);
+        void onFavoriteClick(int id, boolean isFavorite, int adapterPosition);
     }
 }

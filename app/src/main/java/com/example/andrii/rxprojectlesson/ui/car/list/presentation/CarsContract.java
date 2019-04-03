@@ -20,6 +20,8 @@ public interface CarsContract {
         void showPositiveFavoriteMessage(int stringRes);
 
         void showNegativeFavoriteMessage();
+
+        void showCars(List<CarViewModel> carList);
     }
 
     interface Presenter extends BaseContract.Presenter<View> {

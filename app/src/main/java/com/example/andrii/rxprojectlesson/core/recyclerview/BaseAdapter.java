@@ -14,7 +14,7 @@ public abstract class BaseAdapter<T extends ListItem, VH extends ViewHolder> ext
     public void onBindViewHolder(@NonNull VH holder, int i) {
         T object = itemAt(holder.getAdapterPosition());
 
-        holder.bind(object);
+        holder.bind(object, holder.getAdapterPosition());
     }
 
     @Override
@@ -42,6 +42,25 @@ public abstract class BaseAdapter<T extends ListItem, VH extends ViewHolder> ext
 
     protected List<T> getItems() {
         return items;
+    }
+
+    public void removeItems(T items) {
+        this.items.remove(items);
+
+        notifyDataSetChanged();
+    }
+
+    public void removeItemsAtPosition(int position) {
+        T item = itemAt(position);
+        this.items.remove(item);
+
+        notifyDataSetChanged();
+    }
+
+    public void clearItems() {
+        this.items.clear();
+
+        notifyDataSetChanged();
     }
 
     @Override

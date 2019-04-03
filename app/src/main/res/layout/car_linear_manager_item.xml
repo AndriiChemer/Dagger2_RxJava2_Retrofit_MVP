@@ -12,9 +12,9 @@
 
         <ImageView
             android:id="@+id/image"
-            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             tool:background="@drawable/no_image"/>
 
         <ImageView
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/brand_model_name"
                 android:textColor="@color/textColorWhite"
-                android:textSize="17dp"
+                android:textSize="17dp                                                 "
                 tool:text="27000 "/>
 
             <TextView

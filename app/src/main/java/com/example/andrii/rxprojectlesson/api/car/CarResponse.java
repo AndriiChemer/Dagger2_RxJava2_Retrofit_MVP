@@ -6,7 +6,7 @@ import lombok.Value;
 
 @Value
 public class CarResponse {
-    private int id;
+    private Integer id;
     private String brand;
     private String model;
     private String category;

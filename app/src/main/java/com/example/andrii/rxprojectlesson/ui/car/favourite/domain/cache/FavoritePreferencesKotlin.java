@@ -23,7 +23,7 @@ public class FavoritePreferencesKotlin extends BasePreferences {
 
     public List<Integer> getFavoritesCarsIds() {
         String json = getStringFromPrefs(FAVORITE_CARS_ID_KEY, DEFAULT_VALUE);
-        Type type = new TypeToken<List<String>>() {
+        Type type = new TypeToken<List<Integer>>() {
         }.getType();
         if (!DEFAULT_VALUE.equals(json)) {
             return getGson().fromJson(json, type);
@@ -32,7 +32,7 @@ public class FavoritePreferencesKotlin extends BasePreferences {
         }
     }
 
-    private boolean putFavoriteCarIds(List<Integer> offersIdList) {
+    public boolean putFavoriteCarIds(List<Integer> offersIdList) {
         return putStringToPrefs(FAVORITE_CARS_ID_KEY, getGson().toJson(offersIdList));
     }
 

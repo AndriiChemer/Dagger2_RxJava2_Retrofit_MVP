@@ -99,6 +99,7 @@ public class CarsFragment
         recyclerView.setAdapter(linearAdapter);
     }
 
+    @Override
     public void showCars(List<CarViewModel> listCars) {
         linearAdapter.setItems(listCars, new CarsLinearLayoutAdapter.CarItemCallback() {
             @Override
@@ -107,7 +108,7 @@ public class CarsFragment
             }
 
             @Override
-            public void onFavoriteClick(int carId, boolean isFavorite) {
+            public void onFavoriteClick(int carId, boolean isFavorite, int adapterPosition) {
                 presenter.onFavoriteButtonClick(carId, isFavorite);
             }
         });
@@ -119,7 +120,7 @@ public class CarsFragment
             }
 
             @Override
-            public void onFavoriteClick(int carId, boolean isFavorite) {
+            public void onFavoriteClick(int carId, boolean isFavorite, int adapterPosition) {
                 presenter.onFavoriteButtonClick(carId, isFavorite);
             }
         });
@@ -131,7 +132,7 @@ public class CarsFragment
             }
 
             @Override
-            public void onFavoriteClick(int carId, boolean isFavorite) {
+            public void onFavoriteClick(int carId, boolean isFavorite, int adapterPosition) {
                 presenter.onFavoriteButtonClick(carId, isFavorite);
             }
         });

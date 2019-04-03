@@ -1,4 +1,4 @@
-package com.example.andrii.rxprojectlesson.ui.car.list.domain.usecase;
+package com.example.andrii.rxprojectlesson.ui.car.favourite.domain.usecase;
 
 import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.core.domain.EmptyRequestUseCase;

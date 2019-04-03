@@ -6,8 +6,11 @@ import com.example.andrii.rxprojectlesson.api.API;
 import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.domain.cache.FavoritePreferencesKotlin;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -49,21 +52,71 @@ public class MainRepository {
                 .ignoreElement();
     }
 
-    @SuppressLint("CheckResult")
+//    @SuppressLint("CheckResult")
+//    public Single<List<CarResponse>> getFavoriteCars() {
+//        return Single.zip(
+//                getCars(),
+//                getFavoriteCarsId(),
+//                (carResponses, carsId) ->
+//                        Observable.fromIterable(carResponses)
+//                                .filter(carResponse ->
+//                                        carsId.contains(carResponse.getId()))
+//                                .toList()
+//                                .blockingGet()
+//        );
+//    }
+
+//    @SuppressLint("CheckResult")
+//    public Single<List<CarResponse>> getFavoriteCars() {
+//        return Single.zip(
+//                getCars(),
+//                getFavoriteCarsId(),
+//                (carResponses, carsId) ->
+//                        Observable.fromIterable(carResponses)
+//                                .filter(new Predicate<CarResponse>() {
+//                                    @Override
+//                                    public boolean test(CarResponse carResponse) throws Exception {
+//                                        for (Integer id : carsId) {
+//                                            if (id == carResponse.getId()) {
+//                                                return true;
+//                                            }
+//                                        }
+//                                        return false;
+//                                    }
+//                                })
+//                                .toList()
+//                                .blockingGet()
+//        );
+//    }
+
     public Single<List<CarResponse>> getFavoriteCars() {
         return Single.zip(
                 getCars(),
                 getFavoriteCarsId(),
-                (carResponses, carsId) ->
-                        Observable.fromIterable(carResponses)
-                                .filter(carResponse ->
-                                        carsId.contains(carResponse.getId()))
-                                .toList()
-                                .blockingGet()
+                new BiFunction<List<CarResponse>, List<Integer>, List<CarResponse>>() {
+                    @Override
+                    public List<CarResponse> apply(List<CarResponse> carResponses, List<Integer> ids) throws Exception {
+                        List<CarResponse> favoriteCars = new ArrayList<>();
+                        for (int i = 0; i < carResponses.size(); i++) {
+                            for (int j = 0; j < ids.size(); j++) {
+                                if (ids.get(j).equals(carResponses.get(i).getId())) {
+                                    favoriteCars.add(carResponses.get(i));
+                                }
+                            }
+                        }
+                        return favoriteCars;
+                    }
+                }
+
         );
     }
 
     private Single<List<Integer>> getFavoriteCarsId() {
         return Single.fromCallable(favoritePreferences::getFavoritesCarsIds);
+    }
+
+    @NotNull
+    public Single<Boolean> clearFavorite() {
+        return Single.fromCallable(() -> favoritePreferences.putFavoriteCarIds(Collections.emptyList()));
     }
 }

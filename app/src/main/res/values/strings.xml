@@ -37,5 +37,7 @@
     <string name="title_dashboard">Ulubione</string>
     <string name="title_notifications">Konto</string>
 
+    <!--Favorite-->clean_button
+    <string name="clean_button">Usuń wszystkie obserwowane</string>
 
 </resources>

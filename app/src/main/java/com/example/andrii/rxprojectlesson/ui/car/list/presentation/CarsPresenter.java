@@ -5,6 +5,7 @@ import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.app.base.BasePresenter;
 import com.example.andrii.rxprojectlesson.core.rx.SimpleCompletableObserver;
 import com.example.andrii.rxprojectlesson.core.rx.SimpleSingleObserver;
+import com.example.andrii.rxprojectlesson.ui.car.favourite.domain.usecase.RemoveCarFromFavoriteUseCase;
 import com.example.andrii.rxprojectlesson.ui.car.list.converter.CarConverter;
 import com.example.andrii.rxprojectlesson.ui.car.list.domain.usecase.AddCarIdToFavoriteUseCase;
 import com.example.andrii.rxprojectlesson.ui.car.list.domain.usecase.GetCarsUseCase;
@@ -17,15 +18,20 @@ public class CarsPresenter
         extends BasePresenter<CarsContract.View>
         implements CarsContract.Presenter {
 
+    private final CarConverter carConverter;
     private final GetCarsUseCase getCarsUseCase;
     private final AddCarIdToFavoriteUseCase addCarFavoriteUseCase;
-    private final CarConverter carConverter;
+    private final RemoveCarFromFavoriteUseCase removeCarFromFavoriteUseCase;
 
     @Inject
-    CarsPresenter(GetCarsUseCase getCarsUseCase, AddCarIdToFavoriteUseCase addCarFavoriteUseCase, CarConverter carConverter) {
+    CarsPresenter(CarConverter carConverter,
+                  GetCarsUseCase getCarsUseCase,
+                  AddCarIdToFavoriteUseCase addCarFavoriteUseCase,
+                  RemoveCarFromFavoriteUseCase removeCarFromFavoriteUseCase) {
+        this.carConverter = carConverter;
         this.getCarsUseCase = getCarsUseCase;
         this.addCarFavoriteUseCase = addCarFavoriteUseCase;
-        this.carConverter = carConverter;
+        this.removeCarFromFavoriteUseCase = removeCarFromFavoriteUseCase;
     }
 
     @Override
@@ -37,7 +43,10 @@ public class CarsPresenter
         getCarsUseCase.executeDelay(3000, new SimpleSingleObserver<List<CarResponse>>(this) {
             @Override
             public void onSuccess(List<CarResponse> carResponses) {
-                doOnView(CarsContract.View::hideRecyclerSkeletonView);
+                doOnView(view -> {
+                    view.hideRecyclerSkeletonView();
+                    view.showCars(carConverter.convert(carResponses));
+                });
             }
 
             @Override
@@ -85,6 +94,17 @@ public class CarsPresenter
     }
 
     private void removeFromFavorite(int carId) {
+        removeCarFromFavoriteUseCase.execute(carId, new SimpleCompletableObserver(this) {
+            @Override
+            public void onComplete() {
+                int stringRes = R.string.app_name;
+                doOnView(view -> view.showPositiveFavoriteMessage(stringRes));
+            }
 
+            @Override
+            public void onError(Throwable e) {
+                doOnView(CarsContract.View::showNegativeFavoriteMessage);
+            }
+        });
     }
 }

@@ -65,7 +65,7 @@ public class CarStaggeredGridLayoutAdapter extends ClickableAdapter<CarViewModel
 
         @SuppressLint("SetTextI18n")
         @Override
-        public void bind(CarViewModel car) {
+        public void bind(CarViewModel car, int adapterPosition) {
 
             if (car.getPhoto() != null) {
                 imageLoader.loadInto(car.getPhoto(), carImage);
