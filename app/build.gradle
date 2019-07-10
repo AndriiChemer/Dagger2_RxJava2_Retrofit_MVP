@@ -16,12 +16,21 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+        }
     }
+
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
@@ -39,7 +48,7 @@ dependencies {
     implementation rxJavaDependencies.values()
     implementation networkDependencies.values()
     implementation glideDependencies.values()
-    implementation lombokDependencies.values()
+    compileOnly lombokDependencies.values()
     implementation lifecycleDependencies.values()
 
     ///////////////////////////////////////////////////////////////////////////
@@ -78,7 +87,7 @@ dependencies {
     implementation 'io.supercharge:shimmerlayout:2.1.0'
 
     ///////////////////////////////////////////////////////////////////////////
-    // Skeleton view
+    // Google play services
     ///////////////////////////////////////////////////////////////////////////
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
@@ -92,8 +101,13 @@ dependencies {
     ///////////////////////////////////////////////////////////////////////////
     implementation 'com.scottyab:secure-preferences-lib:0.1.4'
 
+    ///////////////////////////////////////////////////////////////////////////
+    // Carusel layout manager
+    ///////////////////////////////////////////////////////////////////////////
+    implementation 'com.azoft.carousellayoutmanager:carousel:1.2.4'
+
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-    annotationProcessor 'org.projectlombok:lombok:1.16.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

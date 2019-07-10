@@ -37,6 +37,10 @@ public class CarsFragment
         extends ClickableFragment<CarsContract.View, CarsContract.Presenter, CarsFragment.CarListClickListener>
         implements CarsContract.View {
 
+    @Inject
+    public CarsFragment() {
+    }
+
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 

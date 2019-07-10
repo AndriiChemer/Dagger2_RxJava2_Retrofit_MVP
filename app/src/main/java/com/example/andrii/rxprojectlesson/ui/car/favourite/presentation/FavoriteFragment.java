@@ -37,6 +37,10 @@ public class FavoriteFragment
         extends ClickableFragment<FavoriteContract.View, FavoriteContract.Presenter, FavoriteFragment.FavoriteClickListener>
         implements FavoriteContract.View{
 
+    @Inject
+    public FavoriteFragment() {
+    }
+
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
@@ -199,7 +203,7 @@ public class FavoriteFragment
         return Objects.requireNonNull(currentDrawable).equals(sameDrawable);
     }
 
-    interface FavoriteClickListener {
+    public interface FavoriteClickListener {
         void finishCurrentActivity();
     }
 }

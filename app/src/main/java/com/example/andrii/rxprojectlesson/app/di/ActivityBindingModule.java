@@ -12,6 +12,8 @@ import com.example.andrii.rxprojectlesson.ui.map.presentation.MapActivity;
 import com.example.andrii.rxprojectlesson.ui.map.presentation.di.MapModule;
 import com.example.andrii.rxprojectlesson.ui.registration.RegistrationActivity;
 import com.example.andrii.rxprojectlesson.ui.registration.di.RegistrationModule;
+import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.caruselmanager.presentation.CreditCardCarouselActivity;
+import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.caruselmanager.presentation.di.CreditCardCarouselModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -27,6 +29,9 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector(modules = CarDetailModule.class)
     abstract CarDetailActivity bindCarsDetailActivity();
+
+    @ContributesAndroidInjector(modules = CreditCardCarouselModule.class)
+    abstract CreditCardCarouselActivity bindCreditCardCaruselActivity();
 
     @ContributesAndroidInjector(modules = MapModule.class)
     abstract MapActivity bindMapActivity();

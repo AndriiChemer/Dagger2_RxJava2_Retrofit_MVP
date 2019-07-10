@@ -1,7 +1,6 @@
 package com.example.andrii.rxprojectlesson.ui.main;
 
 import com.example.andrii.rxprojectlesson.app.base.BasePresenter;
-import com.example.andrii.rxprojectlesson.ui.registration.RegistrationActivity;
 
 import javax.inject.Inject;
 
@@ -20,5 +19,10 @@ public class MainPresenter extends BasePresenter<MainContract.View>
     @Override
     public void onCarListButtonClick() {
         doOnView(MainContract.View::openCarListScreen);
+    }
+
+    @Override
+    public void onShowCreditCardsClick() {
+        doOnView(view -> view.openCreditCardsListScreen());
     }
 }

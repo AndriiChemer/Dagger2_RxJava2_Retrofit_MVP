@@ -20,7 +20,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AppModule.class,
         SchedulerModule.class,
         APIModule.class,
-        PreferencesModule.class
+        PreferencesModule.class,
+        FragmentBindingModule.class
 })
 public interface AppComponent extends AndroidInjector<Application> {
 

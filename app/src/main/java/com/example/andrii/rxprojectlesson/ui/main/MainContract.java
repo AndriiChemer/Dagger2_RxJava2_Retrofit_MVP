@@ -9,6 +9,8 @@ public interface MainContract {
         void openRegistrationScreen();
 
         void openCarListScreen();
+
+        void openCreditCardsListScreen();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
@@ -16,5 +18,7 @@ public interface MainContract {
         void onRegistrationRxValidationButtonClick();
 
         void onCarListButtonClick();
+
+        void onShowCreditCardsClick();
     }
 }

@@ -20,20 +20,25 @@ import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 import java.util.List;
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class CarActivity
         extends BaseActivity<CarContract.View, CarContract.Presenter>
-        implements CarContract.View, BottomNavigationView.OnNavigationItemSelectedListener, CarsFragment.CarListClickListener {
+        implements CarContract.View, BottomNavigationView.OnNavigationItemSelectedListener,
+        CarsFragment.CarListClickListener, FavoriteFragment.FavoriteClickListener {
 
     public static void start(Context context) {
         Intent intent = new Intent(context, CarActivity.class);
         context.startActivity(intent);
     }
 
-    private CarsFragment carsFragment;
-    private FavoriteFragment favoriteFragment;
+    @Inject
+    CarsFragment carsFragment;
+    @Inject
+    FavoriteFragment favoriteFragment;
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
@@ -45,14 +50,8 @@ public class CarActivity
 
     @Override
     protected void prepareView() {
-        createFragments();
-        navigation.setOnNavigationItemSelectedListener(this);
-    }
-
-    private void createFragments() {
-        carsFragment = new CarsFragment();
-        favoriteFragment = new FavoriteFragment();
         loadFragment(carsFragment);
+        navigation.setOnNavigationItemSelectedListener(this);
     }
 
     @Override

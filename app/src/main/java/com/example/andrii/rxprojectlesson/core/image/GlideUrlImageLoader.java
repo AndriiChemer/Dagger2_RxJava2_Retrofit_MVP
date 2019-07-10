@@ -9,7 +9,7 @@ import com.example.andrii.rxprojectlesson.R;
 
 import javax.inject.Inject;
 
-public class GlideUrlImageLoader {
+public class GlideUrlImageLoader implements ImageLoader {
 
     private final Context context;
 
@@ -18,6 +18,7 @@ public class GlideUrlImageLoader {
         this.context = context;
     }
 
+    @Override
     public void loadInto(String imageUrl, ImageView imageView) {
         Glide.with(context)
                 .load(imageUrl)

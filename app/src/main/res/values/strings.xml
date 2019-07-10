@@ -39,5 +39,8 @@
 
     <!--Favorite-->clean_button
     <string name="clean_button">Usuń wszystkie obserwowane</string>
+    <string name="add_this_card">Add this Card to BOJ Pay\nScroll up to choose another Card.</string>
+    <string name="go4it_cards">Go4it cards cannot be used at RTA\nterminals tirh BOJ PAY</string>
+    <string name="add_to_boj_wallet">Add to BOJ Wallet</string>
 
 </resources>
