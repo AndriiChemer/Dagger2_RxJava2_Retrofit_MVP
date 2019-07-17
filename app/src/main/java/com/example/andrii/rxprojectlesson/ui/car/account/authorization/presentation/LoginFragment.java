@@ -13,14 +13,11 @@ import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.ClickableFragment;
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import java.util.Arrays;
 
 import javax.inject.Inject;
 
@@ -41,7 +38,7 @@ public class LoginFragment
     @BindView(R.id.sing_in_fb)
     LoginButton loginWithFbButton;
 
-    CallbackManager callbackManager;
+    private CallbackManager callbackManager;
 
     @Inject
     public LoginFragment() {

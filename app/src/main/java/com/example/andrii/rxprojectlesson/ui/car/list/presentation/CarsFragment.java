@@ -99,7 +99,6 @@ public class CarsFragment
 
     private void prepareRecycler() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setHasFixedSize(false);
         recyclerView.setAdapter(linearAdapter);
     }
 
