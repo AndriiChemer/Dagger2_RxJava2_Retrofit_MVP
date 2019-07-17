@@ -1,5 +1,6 @@
 package com.example.andrii.rxprojectlesson.app.di;
 
+import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.di.LoginModule;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.CarDetailActivity;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.di.CarDetailModule;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.di.FavoriteModule;
@@ -14,6 +15,8 @@ import com.example.andrii.rxprojectlesson.ui.registration.RegistrationActivity;
 import com.example.andrii.rxprojectlesson.ui.registration.di.RegistrationModule;
 import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.caruselmanager.presentation.CreditCardCarouselActivity;
 import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.caruselmanager.presentation.di.CreditCardCarouselModule;
+import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.customlayoutmanager.presentation.CustomRecyclerActivity;
+import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.customlayoutmanager.presentation.di.CustomRecyclerModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -36,6 +39,9 @@ abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = MapModule.class)
     abstract MapActivity bindMapActivity();
 
-    @ContributesAndroidInjector(modules = { CarModule.class, FavoriteModule.class, CarsModule.class })
+    @ContributesAndroidInjector(modules = CustomRecyclerModule.class)
+    abstract CustomRecyclerActivity bindCustomRecyclerActivity();
+
+    @ContributesAndroidInjector(modules = { CarModule.class, FavoriteModule.class, CarsModule.class, LoginModule.class})
     abstract CarActivity bindCarActivity();
 }

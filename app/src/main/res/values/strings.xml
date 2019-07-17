@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">RxProjectLesson</string>
 
+    <!--Facebook strings-->
+    <string name="facebook_app_id">439938283523514</string>
+    <string name="fb_login_protocol_scheme">fb439938283523514</string>
+
     <!--Errors-->
     <string name="no_implemented">This feature not implemented yet.</string>
     <string name="default_error">Ops, something went wrong.</string>
@@ -42,5 +46,11 @@
     <string name="add_this_card">Add this Card to BOJ Pay\nScroll up to choose another Card.</string>
     <string name="go4it_cards">Go4it cards cannot be used at RTA\nterminals tirh BOJ PAY</string>
     <string name="add_to_boj_wallet">Add to BOJ Wallet</string>
+    <string name="sing_in">Sing in</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
 
 </resources>

@@ -8,7 +8,7 @@ ext {
     def RetrofitVersion = '2.5.0'
     def OkHttpVersion = '3.12.0'
     def GlideVersion = '4.7.1'
-    def LombokVersion = '1.18.8'
+    def LombokVersion = '1.16.20'
     def LifeCycleVersion = '1.1.1'
 
     supportLibraryDependencies = [

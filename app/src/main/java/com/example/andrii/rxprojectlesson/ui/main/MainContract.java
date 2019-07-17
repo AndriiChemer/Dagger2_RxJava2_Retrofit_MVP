@@ -11,6 +11,8 @@ public interface MainContract {
         void openCarListScreen();
 
         void openCreditCardsListScreen();
+
+        void openCustomRecyclerScreen();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
@@ -20,5 +22,7 @@ public interface MainContract {
         void onCarListButtonClick();
 
         void onShowCreditCardsClick();
+
+        void onShowCustomRecyclerCreditCardsClick();
     }
 }

@@ -23,6 +23,11 @@ public class MainPresenter extends BasePresenter<MainContract.View>
 
     @Override
     public void onShowCreditCardsClick() {
-        doOnView(view -> view.openCreditCardsListScreen());
+        doOnView(MainContract.View::openCreditCardsListScreen);
+    }
+
+    @Override
+    public void onShowCustomRecyclerCreditCardsClick() {
+        doOnView(MainContract.View::openCustomRecyclerScreen);
     }
 }

@@ -26,8 +26,9 @@ android {
 
         debug {
             debuggable true
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -106,8 +107,13 @@ dependencies {
     ///////////////////////////////////////////////////////////////////////////
     implementation 'com.azoft.carousellayoutmanager:carousel:1.2.4'
 
+    ///////////////////////////////////////////////////////////////////////////
+    // Facebook API
+    ///////////////////////////////////////////////////////////////////////////
+    implementation 'com.facebook.android:facebook-login:[5,6)'
+
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.16.20'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

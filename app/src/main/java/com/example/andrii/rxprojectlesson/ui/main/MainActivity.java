@@ -5,6 +5,7 @@ import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.ui.car.presentation.CarActivity;
 import com.example.andrii.rxprojectlesson.ui.registration.RegistrationActivity;
 import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.caruselmanager.presentation.CreditCardCarouselActivity;
+import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.customlayoutmanager.presentation.CustomRecyclerActivity;
 
 import butterknife.OnClick;
 
@@ -27,6 +28,11 @@ public class MainActivity
         presenter.onShowCreditCardsClick();
     }
 
+    @OnClick(R.id.show_custom_recycler_credit_cards_button)
+    public void onShowCustomRecyclerCreditCardsClick() {
+        presenter.onShowCustomRecyclerCreditCardsClick();
+    }
+
     @Override
     protected int getLayoutResourceID() {
         return R.layout.activity_main;
@@ -45,5 +51,10 @@ public class MainActivity
     @Override
     public void openCreditCardsListScreen() {
         CreditCardCarouselActivity.start(this);
+    }
+
+    @Override
+    public void openCustomRecyclerScreen() {
+        CustomRecyclerActivity.start(this);
     }
 }

@@ -13,9 +13,11 @@ import android.view.MenuItem;
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
+import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.LoginFragment;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.FavoriteFragment;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsFragment;
 import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
+import com.facebook.AccessToken;
 
 import java.util.List;
 import java.util.Objects;
@@ -37,6 +39,8 @@ public class CarActivity
 
     @Inject
     CarsFragment carsFragment;
+    @Inject
+    LoginFragment loginFragment;
     @Inject
     FavoriteFragment favoriteFragment;
 
@@ -62,7 +66,11 @@ public class CarActivity
             case R.id.navigation_favorite:
                 return loadFragment(favoriteFragment);
             case R.id.navigation_notifications:
-                return loadFragment(favoriteFragment);
+                if (isUserAuthorized()) {
+                    return loadFragment(favoriteFragment);
+                } else {
+                    return loadFragment(loginFragment);
+                }
         }
         return false;
     }
@@ -77,6 +85,12 @@ public class CarActivity
             return true;
         }
         return false;
+    }
+
+    private boolean isUserAuthorized() {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+
+        return accessToken != null;
     }
 
     @Override
