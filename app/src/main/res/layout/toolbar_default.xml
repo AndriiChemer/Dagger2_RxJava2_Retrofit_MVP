@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/toolbarBackground"
+    android:background="@color/toolbar_color"
     app:layout_collapseMode="pin"
     app:contentInsetStart="0dp"
     app:contentInsetEnd="0dp">
@@ -30,7 +30,7 @@
             android:layout_centerVertical="true"
             tools:text="Toolbar"
             android:textStyle="bold"
-            android:textSize="15dp"/>
+            android:textSize="15sp"/>
 
         <ImageView
             android:id="@+id/star_favourite"
@@ -55,7 +55,7 @@
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_alignParentBottom="true"
             android:background="@color/line" />
     </RelativeLayout>

@@ -44,7 +44,7 @@ public class BaseFragment <V extends BaseContract.View, P extends BaseContract.P
                 .show();
     }
 
-    public void showSkeletonView(RecyclerView recyclerView, BaseAdapter adapter, int itemAdapterResource){
+    public void showRecyclerSkeletonView(RecyclerView recyclerView, BaseAdapter adapter, int itemAdapterResource){
         recyclerViewSkeletonScreen = Skeleton.bind(recyclerView)
                 .adapter(adapter)
                 .load(itemAdapterResource)

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@android:color/transparent"
+    android:paddingStart="7dp"
+    android:paddingEnd="5dp">
+
+    <View
+        android:id="@+id/price"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_above="@+id/brand_model_name"
+        android:background="@color/light_transparent" />
+
+    <View
+        android:id="@+id/brand_model_name"
+        android:layout_width="170dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_above="@+id/fuel_image"
+        android:background="@color/light_transparent" />
+
+    <View
+        android:id="@+id/fuel_image"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_transparent"/>
+
+    <View
+        android:id="@+id/localization_marker"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/fuel_image"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/light_transparent"/>
+
+
+</RelativeLayout>

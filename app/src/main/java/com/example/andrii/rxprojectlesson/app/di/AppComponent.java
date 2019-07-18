@@ -3,6 +3,7 @@ package com.example.andrii.rxprojectlesson.app.di;
 import com.example.andrii.rxprojectlesson.app.Application;
 import com.example.andrii.rxprojectlesson.app.modules.APIModule;
 import com.example.andrii.rxprojectlesson.app.modules.AppModule;
+import com.example.andrii.rxprojectlesson.app.modules.ImageLoaderModule;
 import com.example.andrii.rxprojectlesson.app.modules.NetworkModule;
 import com.example.andrii.rxprojectlesson.app.modules.PreferencesModule;
 import com.example.andrii.rxprojectlesson.app.modules.SchedulerModule;
@@ -21,6 +22,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         SchedulerModule.class,
         APIModule.class,
         PreferencesModule.class,
+        ImageLoaderModule.class,
         FragmentBindingModule.class
 })
 public interface AppComponent extends AndroidInjector<Application> {

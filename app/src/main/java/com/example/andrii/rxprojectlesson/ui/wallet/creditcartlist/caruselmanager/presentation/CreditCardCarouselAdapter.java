@@ -24,7 +24,7 @@ public class CreditCardCarouselAdapter
     private ImageLoader imageLoader;
 
     @Inject
-    public CreditCardCarouselAdapter(@Named("ResourceImageLoader") ImageLoader imageLoader) {
+    public CreditCardCarouselAdapter(ImageLoader imageLoader) {
         this.imageLoader = imageLoader;
     }
 

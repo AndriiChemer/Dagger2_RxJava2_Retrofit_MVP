@@ -5,14 +5,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MenuItem;
 
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
-import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
 import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.LoginFragment;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.FavoriteFragment;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsFragment;
@@ -20,12 +16,10 @@ import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
 import com.facebook.AccessToken;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class CarActivity
         extends BaseActivity<CarContract.View, CarContract.Presenter>
@@ -65,7 +59,7 @@ public class CarActivity
                 return loadFragment(carsFragment);
             case R.id.navigation_favorite:
                 return loadFragment(favoriteFragment);
-            case R.id.navigation_notifications:
+            case R.id.navigation_account:
                 if (isUserAuthorized()) {
                     return loadFragment(favoriteFragment);
                 } else {

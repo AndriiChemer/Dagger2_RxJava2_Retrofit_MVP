@@ -9,16 +9,23 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/navigation"/>
+        android:layout_above="@+id/line" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/navigation"
+        android:background="@color/line" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        app:itemIconTint="@color/colorWhite"
-        app:itemTextColor="@color/textColorWhite"
+        android:background="@color/bottom_navigation_menu_color"
+        app:itemIconTint="@color/bottom_navigation_view_selector"
+        app:itemTextColor="@color/bottom_navigation_view_selector"
         app:menu="@menu/navigation" />
 
 </RelativeLayout>

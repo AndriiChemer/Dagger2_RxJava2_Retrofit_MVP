@@ -11,4 +11,14 @@ public class LoginPresenter
     @Inject
     public LoginPresenter() {
     }
+
+    @Override
+    public void onResetPasswordClick() {
+        doOnView(LoginContract.View::openResetPasswordScreen);
+    }
+
+    @Override
+    public void onLoginButtonClick() {
+        doOnView(LoginContract.View::openAccountScreen);
+    }
 }

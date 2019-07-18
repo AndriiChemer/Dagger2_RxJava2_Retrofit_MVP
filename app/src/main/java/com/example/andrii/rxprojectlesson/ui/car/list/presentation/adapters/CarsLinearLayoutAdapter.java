@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
-import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
+import com.example.andrii.rxprojectlesson.core.image.ImageLoader;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ClickableAdapter;
 import com.example.andrii.rxprojectlesson.core.recyclerview.ViewHolder;
 import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
@@ -25,10 +25,10 @@ public class CarsLinearLayoutAdapter extends ClickableAdapter<CarViewModel, View
 
     private final Context context;
     private final PriceConverter priceConverter;
-    private final GlideUrlImageLoader imageLoader;
+    private final ImageLoader imageLoader;
 
     @Inject
-    public CarsLinearLayoutAdapter(Context context, PriceConverter priceConverter, GlideUrlImageLoader imageLoader) {
+    public CarsLinearLayoutAdapter(Context context, PriceConverter priceConverter, ImageLoader imageLoader) {
         this.context = context;
         this.priceConverter = priceConverter;
         this.imageLoader = imageLoader;

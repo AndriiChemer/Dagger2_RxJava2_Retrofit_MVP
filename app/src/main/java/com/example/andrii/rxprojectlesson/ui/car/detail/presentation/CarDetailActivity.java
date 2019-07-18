@@ -1,16 +1,13 @@
 package com.example.andrii.rxprojectlesson.ui.car.detail.presentation;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,8 +16,8 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.ToolbarActivity;
-import com.example.andrii.rxprojectlesson.core.image.GlideUrlImageLoader;
 import com.example.andrii.rxprojectlesson.core.converter.PriceConverter;
+import com.example.andrii.rxprojectlesson.core.image.ImageLoader;
 import com.example.andrii.rxprojectlesson.core.permission.PermissionChecker;
 import com.example.andrii.rxprojectlesson.ui.car.detail.viewmodel.CarDetailViewModel;
 import com.example.andrii.rxprojectlesson.ui.map.presentation.MapActivity;
@@ -52,7 +49,7 @@ public class CarDetailActivity
     protected PriceConverter priceConverter;
 
     @Inject
-    protected GlideUrlImageLoader imageLoader;
+    protected ImageLoader imageLoader;
 
     @BindView(R.id.container)
     View container;

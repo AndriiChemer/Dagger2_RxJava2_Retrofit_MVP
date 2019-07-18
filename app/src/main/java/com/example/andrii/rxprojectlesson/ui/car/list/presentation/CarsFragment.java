@@ -94,6 +94,7 @@ public class CarsFragment
     @Override
     protected void prepareView() {
         prepareRecycler();
+        showRecyclerSkeletonView(recyclerView, linearAdapter, R.layout.car_linear_manager_item_skeleton);
         changeLayoutManagerButton.setVisibility(View.VISIBLE);
     }
 
@@ -144,11 +145,6 @@ public class CarsFragment
     @Override
     public void openCarDetailScreen(int id) {
         CarDetailActivity.start(getContext(), id);
-    }
-
-    @Override
-    public void hideRecyclerSkeletonView() {
-
     }
 
     @Override

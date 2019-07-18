@@ -22,7 +22,9 @@ import com.facebook.login.widget.LoginButton;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
+//ga0RGNYHvNM5d0SLGQfpQWAPGJ8= generate by console keystore
 public class LoginFragment
         extends ClickableFragment<LoginContract.View, LoginContract.Presenter, LoginFragment.LoginClickListener>
         implements LoginContract.View {
@@ -42,6 +44,16 @@ public class LoginFragment
 
     @Inject
     public LoginFragment() {
+    }
+
+    @OnClick()
+    void onResetPasswordClick() {
+        presenter.onResetPasswordClick();
+    }
+
+    @OnClick()
+    void onLoginButtonClick() {
+        presenter.onLoginButtonClick();
     }
 
     @Nullable
@@ -85,6 +97,16 @@ public class LoginFragment
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void openResetPasswordScreen() {
+        showNoImplementedFeatureMessage();
+    }
+
+    @Override
+    public void openAccountScreen() {
+        showNoImplementedFeatureMessage();
     }
 
     interface LoginClickListener {
