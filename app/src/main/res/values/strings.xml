@@ -52,5 +52,6 @@
     <string name="reset_password">Reset Password</string>
     <string name="login">Login</string>
     <string name="or">OR</string>
+    <string name="featured">Wyróżnione</string>
 
 </resources>

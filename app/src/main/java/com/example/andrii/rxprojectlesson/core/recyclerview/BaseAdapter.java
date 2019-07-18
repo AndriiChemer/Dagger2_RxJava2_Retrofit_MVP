@@ -8,11 +8,13 @@ import java.util.List;
 
 public abstract class BaseAdapter<T extends ListItem, VH extends ViewHolder> extends RecyclerView.Adapter<VH> {
 
+    protected boolean lastPosition = false;
     private List<T> items = new ArrayList<>();
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int i) {
         T object = itemAt(holder.getAdapterPosition());
+        lastPosition = i == getItemCount() - 1;
 
         holder.bind(object, holder.getAdapterPosition());
     }

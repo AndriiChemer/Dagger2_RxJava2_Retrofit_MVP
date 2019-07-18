@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
@@ -46,6 +47,8 @@ public class CarGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHol
 
     public class CarViewHolder extends ViewHolder<CarViewModel> {
 
+        @BindView(R.id.featured_container)
+        RelativeLayout featuredContainer;
         @BindView(R.id.card_item_container)
         CardView container;
         @BindView(R.id.image)
@@ -74,6 +77,8 @@ public class CarGridLayoutAdapter extends ClickableAdapter<CarViewModel, ViewHol
             } else {
                 carImage.setBackground(context.getResources().getDrawable(R.drawable.no_image));
             }
+
+            if (car.isFeatured()) featuredContainer.setVisibility(View.VISIBLE);
 
             price.setText(priceConverter.convert(car.getPrice()));
             brandModelName.setText(car.getBrand() + " " + car.getModel());

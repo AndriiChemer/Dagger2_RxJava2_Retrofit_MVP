@@ -25,7 +25,8 @@ public class CarMock {
                         true,
                         "Wrocław",
                         String.valueOf(R.drawable.audi),
-                        false),
+                        false,
+                        true),
                 new CarResponse(2,
                         "BMW",
                         "M3",
@@ -41,6 +42,7 @@ public class CarMock {
                         true,
                         "Lublin",
                         String.valueOf(R.drawable.bmw),
+                        false,
                         false),
                 new CarResponse(1,
                         "Mercedes-Benz",
@@ -57,7 +59,7 @@ public class CarMock {
                         true,
                         "Lublin",
                         String.valueOf(R.drawable.mercedes_benz),
-                        false)
+                        false, false)
         );
     }
 
@@ -82,6 +84,7 @@ public class CarMock {
                 true,
                 "Wrocław",
                 String.valueOf(R.drawable.audi),
-                false);
+                false,
+                true);
     }
 }

@@ -25,4 +25,5 @@ public class CarResponse {
     private String localization;
     private String photo;
     private boolean isFavorite;
+    private boolean featured;
 }

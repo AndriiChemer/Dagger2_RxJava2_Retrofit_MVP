@@ -6,7 +6,6 @@ import com.example.andrii.rxprojectlesson.ui.car.list.presentation.adapters.Cars
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Value;
 
 @Getter
 @Setter
@@ -20,6 +19,7 @@ public class CarViewModel implements ListItem {
     private String fuel;
     private String localization;
     private boolean isFavorite;
+    private boolean featured;
 
     @Override
     public int getViewType() {
