@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/gradient_test">
+        <shape
+            android:shape="oval"
+            android:padding="15dp" />
+    </item>
+    <item android:drawable="@drawable/ic_account_icon">
+        <shape
+            android:shape="oval"
+            android:padding="15dp" />
+    </item>
+
+</layer-list>
+
