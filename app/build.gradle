@@ -32,7 +32,7 @@ android {
         }
     }
 
-    flavorDimensions"default"
+    flavorDimensions "default"
     productFlavors {
         network {
 

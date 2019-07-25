@@ -13,6 +13,8 @@ public interface MainContract {
         void openCreditCardsListScreen();
 
         void openCustomRecyclerScreen();
+
+        void openCanvasFirstLessonScreen();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
@@ -24,5 +26,7 @@ public interface MainContract {
         void onShowCreditCardsClick();
 
         void onShowCustomRecyclerCreditCardsClick();
+
+        void onCanvasFirstLessonClick();
     }
 }

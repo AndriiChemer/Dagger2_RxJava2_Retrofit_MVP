@@ -30,4 +30,9 @@ public class MainPresenter extends BasePresenter<MainContract.View>
     public void onShowCustomRecyclerCreditCardsClick() {
         doOnView(MainContract.View::openCustomRecyclerScreen);
     }
+
+    @Override
+    public void onCanvasFirstLessonClick() {
+        doOnView(MainContract.View::openCanvasFirstLessonScreen);
+    }
 }

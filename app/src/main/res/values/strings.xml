@@ -53,5 +53,6 @@
     <string name="login">Login</string>
     <string name="or">OR</string>
     <string name="featured">Wyróżnione</string>
+    <string name="first">First</string>
 
 </resources>

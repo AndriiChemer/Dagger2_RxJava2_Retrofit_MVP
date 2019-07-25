@@ -2,6 +2,7 @@ package com.example.andrii.rxprojectlesson.ui.main;
 
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
+import com.example.andrii.rxprojectlesson.ui.canvas.firstlessons.presentation.CanvasFirstLessonsActivity;
 import com.example.andrii.rxprojectlesson.ui.car.presentation.CarActivity;
 import com.example.andrii.rxprojectlesson.ui.registration.RegistrationActivity;
 import com.example.andrii.rxprojectlesson.ui.wallet.creditcartlist.caruselmanager.presentation.CreditCardCarouselActivity;
@@ -33,6 +34,11 @@ public class MainActivity
         presenter.onShowCustomRecyclerCreditCardsClick();
     }
 
+    @OnClick(R.id.canvas_first_lesson)
+    public void onCanvasFirstLessonClick() {
+        presenter.onCanvasFirstLessonClick();
+    }
+
     @Override
     protected int getLayoutResourceID() {
         return R.layout.activity_main;
@@ -56,5 +62,10 @@ public class MainActivity
     @Override
     public void openCustomRecyclerScreen() {
         CustomRecyclerActivity.start(this);
+    }
+
+    @Override
+    public void openCanvasFirstLessonScreen() {
+        CanvasFirstLessonsActivity.start(this);
     }
 }

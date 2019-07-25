@@ -1,5 +1,7 @@
 package com.example.andrii.rxprojectlesson.app.di;
 
+import com.example.andrii.rxprojectlesson.ui.canvas.firstlessons.presentation.CanvasFirstLessonsActivity;
+import com.example.andrii.rxprojectlesson.ui.canvas.firstlessons.presentation.di.CanvasFirstLessonModule;
 import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.di.LoginModule;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.CarDetailActivity;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.di.CarDetailModule;
@@ -44,4 +46,7 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector(modules = { CarModule.class, FavoriteModule.class, CarsModule.class, LoginModule.class})
     abstract CarActivity bindCarActivity();
+
+    @ContributesAndroidInjector(modules = CanvasFirstLessonModule.class)
+    abstract CanvasFirstLessonsActivity bindCanvasFirstLessonsActivity();
 }

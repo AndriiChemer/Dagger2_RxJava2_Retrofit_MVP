@@ -29,8 +29,8 @@
     <color name="imageBackgroundBlack">@color/colorBlack</color>
     <color name="locationColor">@color/colorBlueLight</color>
     <color name="line">@color/westar</color>
-    <color name="toolbar_color">@color/whisper</color>
-    <color name="bottom_navigation_menu_color">@color/whisper</color>
+    <color name="toolbar_color">@color/whisper_color</color>
+    <color name="bottom_navigation_menu_color">@color/whisper_color</color>
     <color name="bottom_navigation_item_selected_color">#64C0EF</color>
     <color name="view_selected_color">#64C0EF</color>
     <color name="bottom_navigation_item_color">#6F6F6F</color>
