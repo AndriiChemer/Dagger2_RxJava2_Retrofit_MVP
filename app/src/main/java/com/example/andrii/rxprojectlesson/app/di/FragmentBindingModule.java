@@ -2,6 +2,8 @@ package com.example.andrii.rxprojectlesson.app.di;
 
 import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.LoginFragment;
 import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.di.LoginModule;
+import com.example.andrii.rxprojectlesson.ui.car.account.registration.presentation.RegistrationFragment;
+import com.example.andrii.rxprojectlesson.ui.car.account.registration.presentation.di.RegisterModule;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.FavoriteFragment;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.di.FavoriteModule;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsFragment;
@@ -21,4 +23,7 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = LoginModule.class)
     abstract LoginFragment contributeLoginFragment();
+
+    @ContributesAndroidInjector(modules = RegisterModule.class)
+    abstract RegistrationFragment contributeRegistrationFragment();
 }

@@ -46,12 +46,16 @@
     <string name="add_this_card">Add this Card to BOJ Pay\nScroll up to choose another Card.</string>
     <string name="go4it_cards">Go4it cards cannot be used at RTA\nterminals tirh BOJ PAY</string>
     <string name="add_to_boj_wallet">Add to BOJ Wallet</string>
-    <string name="sing_in">Sing in</string>
+    <string name="sing_in">Login</string>
+    <string name="sing_up">Register</string>
     <string name="username">Username:</string>
     <string name="password">Password:</string>
-    <string name="reset_password">Reset Password</string>
+    <string name="forgot_password">Forgot?</string>
     <string name="login">Login</string>
     <string name="or">OR</string>
     <string name="featured">Wyróżnione</string>
+    <string name="facebook">FaceBook</string>
+    <string name="sing_up_button">Register</string>
+    <string name="sing_in_button">Login</string>
 
 </resources>

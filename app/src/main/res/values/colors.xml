@@ -15,6 +15,7 @@
     <color name="colorBlackTransparent50">#801F1616</color>
     <color name="light_transparent">#16000000</color>
     <color name="whisper_color">#ECECEC</color>
+    <color name="ironside_gray">#3364625E</color>
 
 
     <color name="textColorWhite">@color/colorWhite</color>
@@ -34,4 +35,5 @@
     <color name="bottom_navigation_item_selected_color">#64C0EF</color>
     <color name="view_selected_color">#64C0EF</color>
     <color name="bottom_navigation_item_color">#6F6F6F</color>
+    <color name="shadow">@color/ironside_gray</color>
 </resources>

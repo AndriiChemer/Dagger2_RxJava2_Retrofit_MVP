@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andrii.rxprojectlesson.R;
@@ -36,8 +36,8 @@ public class LoginFragment
     @BindView(R.id.reset_password)
     TextView resetPassword;
     @BindView(R.id.sing_in_button)
-    Button loginButton;
-    @BindView(R.id.sing_in_fb)
+    ImageView loginButton;
+    @BindView(R.id.login_button)
     LoginButton loginWithFbButton;
 
     private CallbackManager callbackManager;
@@ -46,14 +46,24 @@ public class LoginFragment
     public LoginFragment() {
     }
 
-    @OnClick()
+    @OnClick(R.id.reset_password)
     void onResetPasswordClick() {
         presenter.onResetPasswordClick();
     }
 
-    @OnClick()
+    @OnClick(R.id.sing_in_button)
     void onLoginButtonClick() {
         presenter.onLoginButtonClick();
+    }
+
+    @OnClick(R.id.sing_in_fb)
+    void onFacebookLoginClick() {
+        presenter.onFacebookLoginClick();
+    }
+
+    @OnClick(R.id.registration_button)
+    void onRegistrationButtonClick() {
+        presenter.onRegistrationButtonClick();
     }
 
     @Nullable
@@ -109,7 +119,18 @@ public class LoginFragment
         showNoImplementedFeatureMessage();
     }
 
-    interface LoginClickListener {
+    @Override
+    public void singInUsingFacebook() {
+        showDefaultErrorMessage();
+        loginWithFbButton.performClick();
+    }
 
+    @Override
+    public void openRegistrationScreen() {
+        listener.openRegistrationScreen();
+    }
+
+    public interface LoginClickListener {
+        void openRegistrationScreen();
     }
 }

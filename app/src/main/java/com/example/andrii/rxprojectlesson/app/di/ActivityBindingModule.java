@@ -1,6 +1,7 @@
 package com.example.andrii.rxprojectlesson.app.di;
 
 import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.di.LoginModule;
+import com.example.andrii.rxprojectlesson.ui.car.account.registration.presentation.di.RegisterModule;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.CarDetailActivity;
 import com.example.andrii.rxprojectlesson.ui.car.detail.presentation.di.CarDetailModule;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.di.FavoriteModule;
@@ -42,6 +43,6 @@ abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = CustomRecyclerModule.class)
     abstract CustomRecyclerActivity bindCustomRecyclerActivity();
 
-    @ContributesAndroidInjector(modules = { CarModule.class, FavoriteModule.class, CarsModule.class, LoginModule.class})
+    @ContributesAndroidInjector(modules = {CarModule.class, FavoriteModule.class, CarsModule.class, LoginModule.class, RegisterModule.class})
     abstract CarActivity bindCarActivity();
 }

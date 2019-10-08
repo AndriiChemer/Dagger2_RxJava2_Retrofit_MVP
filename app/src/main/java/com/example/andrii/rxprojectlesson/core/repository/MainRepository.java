@@ -1,7 +1,5 @@
 package com.example.andrii.rxprojectlesson.core.repository;
 
-import android.annotation.SuppressLint;
-
 import com.example.andrii.rxprojectlesson.api.API;
 import com.example.andrii.rxprojectlesson.api.car.CarResponse;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.domain.cache.FavoritePreferencesKotlin;
@@ -16,10 +14,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Completable;
-import io.reactivex.Observable;
 import io.reactivex.Single;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Predicate;
 
 public class MainRepository {
 
@@ -93,19 +88,16 @@ public class MainRepository {
         return Single.zip(
                 getCars(),
                 getFavoriteCarsId(),
-                new BiFunction<List<CarResponse>, List<Integer>, List<CarResponse>>() {
-                    @Override
-                    public List<CarResponse> apply(List<CarResponse> carResponses, List<Integer> ids) throws Exception {
-                        List<CarResponse> favoriteCars = new ArrayList<>();
-                        for (int i = 0; i < carResponses.size(); i++) {
-                            for (int j = 0; j < ids.size(); j++) {
-                                if (ids.get(j).equals(carResponses.get(i).getId())) {
-                                    favoriteCars.add(carResponses.get(i));
-                                }
+                (carResponses, ids) -> {
+                    List<CarResponse> favoriteCars = new ArrayList<>();
+                    for (int i = 0; i < carResponses.size(); i++) {
+                        for (int j = 0; j < ids.size(); j++) {
+                            if (ids.get(j).equals(carResponses.get(i).getId())) {
+                                favoriteCars.add(carResponses.get(i));
                             }
                         }
-                        return favoriteCars;
                     }
+                    return favoriteCars;
                 }
 
         );

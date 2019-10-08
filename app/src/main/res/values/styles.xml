@@ -31,4 +31,25 @@
         <item name="android:layout_margin">10dp</item>
     </style>
 
+
+    <style name="myDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@null</item>
+        <item name="android:panelBackground">@null</item>
+        <item name="android:windowBackground">@drawable/my_dialog_bg</item>
+        <item name="android:useDefaultMargins">true</item>
+        <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
+        <item name="buttonBarButtonStyle">@style/ArtaTechTheme.DialogButton</item>
+        <item name="buttonBarPositiveButtonStyle">@style/ArtaTechTheme.DialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/ArtaTechTheme.DialogButton</item>
+        <item name="buttonBarNeutralButtonStyle">@style/ArtaTechTheme.DialogButton</item>
+
+    </style>
+
+    <style name="ArtaTechTheme.DialogButton" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_selector</item>
+        <item name="android:background">@drawable/btn_selector</item>
+    </style>
+
 </resources>

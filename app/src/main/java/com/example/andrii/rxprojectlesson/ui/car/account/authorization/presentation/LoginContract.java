@@ -9,6 +9,10 @@ public interface LoginContract {
         void openResetPasswordScreen();
 
         void openAccountScreen();
+
+        void singInUsingFacebook();
+
+        void openRegistrationScreen();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
@@ -16,5 +20,9 @@ public interface LoginContract {
         void onResetPasswordClick();
 
         void onLoginButtonClick();
+
+        void onFacebookLoginClick();
+
+        void onRegistrationButtonClick();
     }
 }

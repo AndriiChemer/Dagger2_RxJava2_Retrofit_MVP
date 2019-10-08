@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.example.andrii.rxprojectlesson.R;
 import com.example.andrii.rxprojectlesson.app.base.BaseActivity;
 import com.example.andrii.rxprojectlesson.ui.car.account.authorization.presentation.LoginFragment;
+import com.example.andrii.rxprojectlesson.ui.car.account.registration.presentation.RegistrationFragment;
 import com.example.andrii.rxprojectlesson.ui.car.favourite.presentation.FavoriteFragment;
 import com.example.andrii.rxprojectlesson.ui.car.list.presentation.CarsFragment;
 import com.example.andrii.rxprojectlesson.ui.car.list.viewmodel.CarViewModel;
@@ -24,7 +25,8 @@ import butterknife.BindView;
 public class CarActivity
         extends BaseActivity<CarContract.View, CarContract.Presenter>
         implements CarContract.View, BottomNavigationView.OnNavigationItemSelectedListener,
-        CarsFragment.CarListClickListener, FavoriteFragment.FavoriteClickListener {
+        CarsFragment.CarListClickListener, FavoriteFragment.FavoriteClickListener,
+        RegistrationFragment.RegistrationClickListener, LoginFragment.LoginClickListener {
 
     public static void start(Context context) {
         Intent intent = new Intent(context, CarActivity.class);
@@ -35,6 +37,8 @@ public class CarActivity
     CarsFragment carsFragment;
     @Inject
     LoginFragment loginFragment;
+    @Inject
+    RegistrationFragment registrationFragment;
     @Inject
     FavoriteFragment favoriteFragment;
 
@@ -95,5 +99,15 @@ public class CarActivity
     @Override
     public void finishCurrentActivity() {
         finish();
+    }
+
+    @Override
+    public void onLoginClick() {
+        loadFragment(loginFragment);
+    }
+
+    @Override
+    public void openRegistrationScreen() {
+        loadFragment(registrationFragment);
     }
 }

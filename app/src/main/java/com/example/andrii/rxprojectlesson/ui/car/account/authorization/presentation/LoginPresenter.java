@@ -21,4 +21,14 @@ public class LoginPresenter
     public void onLoginButtonClick() {
         doOnView(LoginContract.View::openAccountScreen);
     }
+
+    @Override
+    public void onFacebookLoginClick() {
+        doOnView(LoginContract.View::singInUsingFacebook);
+    }
+
+    @Override
+    public void onRegistrationButtonClick() {
+        doOnView(LoginContract.View::openRegistrationScreen);
+    }
 }

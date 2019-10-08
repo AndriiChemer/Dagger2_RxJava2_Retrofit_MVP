@@ -32,7 +32,7 @@ android {
         }
     }
 
-    flavorDimensions"default"
+    flavorDimensions "default"
     productFlavors {
         network {
 
@@ -126,9 +126,7 @@ dependencies {
     ///////////////////////////////////////////////////////////////////////////
     // Facebook API
     ///////////////////////////////////////////////////////////////////////////
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.8.9'
-    androidTestCompile 'org.mockito:mockito-android:2.8.9'
+
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     annotationProcessor 'org.projectlombok:lombok:1.16.20'
